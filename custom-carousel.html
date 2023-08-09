@@ -1,0 +1,120 @@
+<!doctype html>
+<!-- This tells everyone that this is an AMP file. `<html amp>` works too -->
+<html ⚡> 
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>
+
+    <link rel="canonical" href=".html">
+
+    <title>custom carousel</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <!--CSS must be embedded inline-->
+    <style amp-custom>
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%; /* Adjust the width to your desired carousel width */
+  margin: 0 auto;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.a-slide {
+  flex: 0 0 100%;
+  min-width: 100%;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.a-curlBtn {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+  font-size: 20px;
+  font-weight: 700;
+  background: transparent;
+    border: none;
+    outline: none;
+}
+
+.a-prev-btn {
+  left: 5px;
+  transform: rotate(180deg);
+}
+
+.a-next-btn {
+  right: 5px;
+  transform: rotate(0deg);
+}
+
+.carousel .a-slide amp-img{
+    width: 100%;
+    height: 400px;
+}
+    </style>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  </head>
+  <body>
+
+    <!-- Ref: https://amp.dev/documentation/components/amp-script/ -->
+    <amp-script layout="fixed-height" height="500" width="auto" script="customSlide" data-ampdevmode>
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="a-slide">
+                    <amp-img src="/assets/images/tops/black-top/Dream-Beauty-Fashion.png" width="100" height="100" layout="responsive" alt="responsive"></amp-img>
+                </div>
+                <div class="a-slide">
+                    <amp-img src="/assets/images/tops/black-top/Dream-Beauty-Fashion1.png" width="100" height="100" layout="responsive" alt="responsive"></amp-img>
+                </div>
+                <div class="a-slide">
+                    <amp-img src="/assets/images/tops/black-top/Dream-Beauty-Fashion2.png" width="100" height="100" layout="responsive" alt="responsive"></amp-img>
+                </div>
+                <div class="a-slide">
+                    <amp-img src="/assets/images/tops/black-top/Dream-Beauty-Fashion3.png" width="100" height="100" layout="responsive" alt="responsive"></amp-img>
+                </div>
+                <!-- Add more slides as needed -->
+            </div>
+            <button class="a-curlBtn a-prev-btn" id="prev-btn">
+                <amp-img src="/assets/images/slide-arrow.png" width="30" height="30" layout="intrinsic" alt="intrinsic"></amp-img>
+                
+            </button>
+            <button class="a-curlBtn a-next-btn" id="next-btn">
+                <amp-img src="/assets/images/slide-arrow.png" width="30" height="30" layout="intrinsic" alt="intrinsic"></amp-img>
+            </button>
+        </div>
+    </amp-script>
+
+    <script id="customSlide" type="text/plain" target="amp-script">
+       const carousel = document.querySelector('.carousel');
+        const slides = document.querySelectorAll('.a-slide');
+        const nextBtn = document.getElementById('next-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        let currentIndex = 0;
+
+        function showSlide(index) {
+        currentIndex = (index + slides.length) % slides.length;
+        carousel.style.transform = `translateX(${-currentIndex * 100}%)`;
+        }
+
+        prevBtn.addEventListener('click', () => showSlide(currentIndex - 1));
+        nextBtn.addEventListener('click', () => showSlide(currentIndex + 1));
+
+        showSlide(currentIndex);
+
+
+    </script>
+    
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Click Example</title>
+</head>
+<body>
+  <button class="item">Item 1</button>
+  <button class="item">Item 2</button>
+  <button class="item">Item 3</button>
+
+  <script>
+    const items = document.querySelectorAll('.item');
+
+    items.forEach(item => {
+      item.addEventListener('click', handleClick);
+    });
+
+    function handleClick(event) {
+      items.forEach(item => {
+        item.removeEventListener('click', handleClick);
+      });
+
+      const clickedElement = event.target;
+      console.log('Clicked element:', clickedElement.textContent);
+    }
+  </script>
+</body>
+</html>

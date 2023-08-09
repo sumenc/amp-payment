@@ -1,0 +1,57 @@
+<!doctype html>
+<!-- This tells everyone that this is an AMP file. `<html amp>` works too -->
+<html ⚡>  <!--Ref: https://amp.dev/documentation/guides-and-tutorials/learn/spec/amphtml/ -->
+<!-- The charset definition must be the first child of the `<head>` tag -->
+  <head>
+    <meta charset="utf-8">
+    <meta name="amp-script-src" content="sha384-U6yNBSt8O_xQzZyH2EVeVoTCxsxWgPoHgI0opu5wto0p1-GvH8bdjgmOMTQK6_b_">
+    <!-- The AMP runtime must be loaded as the second child of the `<head>` tag.-->
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+    
+    <!--AMP HTML files require a canonical link pointing to the regular HTML. If no HTML version exists, it should point to itself -->
+    <link rel="canonical" href=".html">
+    <title>getState</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <!--CSS must be embedded inline-->
+    <style amp-custom>
+      
+    </style>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  </head>
+  <body>
+
+    <amp-script layout="fixed-height" height="500" width="auto" script="myScr" data-ampdevmode>
+        <amp-state id="myState">
+            <script type="application/json">
+                100
+            </script>
+        </amp-state>
+        <button id="myBtn">click</button>
+        <div id="conts"></div>
+    </amp-script>
+
+
+    <script id="myScr" type="text/plain" target="amp-script">
+
+        async function myFunction() {
+            AMP.setState('myState');
+            let text = await AMP.getState('text');
+
+            var textsVal = document.getElementById("conts");
+            textsVal.innerHTML = text;
+          
+            AMP.setState({'number': 42});
+            let number = Number(await AMP.getState('number'));
+          
+            AMP.setState({'obj': {'text': 'I am a string', 'number': 42}});
+            let obj = JSON.parse(await AMP.getState('obj'));
+          }
+
+          myFunction();
+    </script>
+    
+  </body>
+</html>

@@ -1,0 +1,980 @@
+<!doctype html>
+<html ⚡>
+
+<head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+    <script async custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>
+    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+    <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
+
+    <link rel="canonical" href=".html">
+    <title>Shoppy</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <style amp-custom>
+        /* common css start */
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            vertical-align: baseline;
+        }
+
+        /* HTML5 display-role reset for older browsers */
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            display: block;
+        }
+
+        body {
+            line-height: 1;
+            font-family: 'PT Sans', sans-serif;
+        }
+
+        ol,
+        ul {
+            list-style: none;
+        }
+
+        blockquote,
+        q {
+            quotes: none;
+        }
+
+        blockquote:before,
+        blockquote:after,
+        q:before,
+        q:after {
+            content: '';
+            content: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        amp-selector [option][selected] {
+            border: none;
+            outline: none;
+        }
+
+        svg:not(:root) {
+            overflow: hidden;
+        }
+
+        button,
+        select {
+            text-transform: none;
+        }
+
+        button,
+        input {
+            overflow: visible;
+        }
+
+        /* common css end */
+        /* header start */
+        .a-hideDiv {
+            display: none;
+        }
+
+        .a-head {
+            padding: 15px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+            display: flex;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            /* bottom: 0; */
+            z-index: 1;
+            background: #fff;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .a-head a {
+            display: flex;
+            align-items: center;
+            color: #ff3e6c;
+            font-weight: 900;
+            font-size: 20px;
+            position: relative;
+        }
+
+        .a-head a amp-img {
+            margin-right: 10px;
+        }
+
+        /* header end */
+
+        .a-product{
+            /* display: flex;
+            flex-wrap: wrap; */
+            margin-top: 85px;
+        }
+
+        .a-prdBk {
+            display: flex;
+            flex-wrap: wrap;
+            /* width: 50%;
+            justify-content: space-evenly; */
+        }
+
+        .a-prdCrd {
+            position: relative;
+            text-align: center;
+            width: 50%;
+            border: 1px solid #eaeaec;
+            padding-bottom: 10px;
+            box-sizing: border-box;
+            /* float: left;
+        width: 50%;
+        margin: 0;
+        overflow: hidden; */
+        }
+        .a-prdCrd amp-img{
+        width: 100%;
+      }
+        .a-prdCrd amp-img img {
+            object-fit: inherit;
+            object-position: top;
+        }
+
+        .a-prdCrd .a-text-md {
+            padding: 8px 0 15px;
+            font-size: 12px;
+        }
+
+        .a-prdCrd .a-text-md .a-prodTit {
+            padding-left: 8px;
+            font-weight: 700;
+            line-height: 1.57;
+            text-align: left;
+            color: #282c3f;
+            font-size: 13px;
+            width: 85%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: inherit;
+        }
+
+        .a-prdCrd .a-text-md .a-des {
+            opacity: .6;
+            padding-left: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 180px;
+            margin: 0;
+            font-size: 11px;
+            font-weight: 400;
+            text-align: left;
+            color: #282c3f;
+            height: 12px;
+        }
+
+        .a-prdCrd .a-text-md .a-prcCnt {
+            margin-top: -1px;
+            padding-left: 6px;
+            text-align: left;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .a-prdCrd .a-text-md .a-prcCnt .a-price {
+            font-weight: 700;
+            color: #282c3f;
+            font-size: 13px;
+        }
+
+        .a-prdCrd .a-text-md .a-prcCnt .a-price .rupees {
+            position: relative;
+            top: 4px;
+            height: 20px;
+        }
+
+        .a-prdCrd .a-text-md .a-prcCnt .orig-price {
+            opacity: .4;
+            color: #282c3f;
+            text-decoration: line-through;
+            font-size: 13px;
+        }
+
+        .a-prdCrd .a-text-md .a-prcCnt .orig-price .strike-rupees {
+            position: relative;
+            top: 1px;
+        }
+
+        .a-prdCrd .a-text-md .a-prcCnt .orig-price .a-prcVl {
+            position: relative;
+            left: -2px;
+        }
+
+        .a-prdCrd .a-text-md .a-prcCnt .a-discPcn {
+            color: #ff905a;
+            font-weight: 700;
+            font-size: 11px;
+            white-space: nowrap;
+        }
+
+        .a-WshLt {
+            color: #282c3f;
+            display: inline-block;
+            position: absolute;
+            bottom: 13%;
+            right: 10px;
+            /* top: 2px; */
+            padding-top: 4px;
+            padding-left: 15px;
+            height: 38px;
+        }
+
+        .a-pdpAcBt {
+            padding: 8px;
+        }
+
+        .a-pdpAcBt .a-grid {
+            background: #fff;
+            margin: 0 0 16px 0;
+            display: flex;
+            justify-self: unset;
+        }
+
+        .a-rplCnt {
+            position: relative;
+            overflow: hidden;
+        }
+        .a-pdpAcBt .a-btnPry {
+            /* display: block; */
+            margin-bottom: 0;
+            font-weight: 700;
+            text-align: center;
+            touch-action: manipulation;
+            cursor: pointer;
+            background-image: none;
+            border: 1px solid transparent;
+            white-space: nowrap;
+            outline: 0;
+            padding: 10px 12px;
+            font-size: 13px;
+            line-height: 1.42857143;
+            border-radius: 4px;
+            background-color: #fff;
+            width: 100%;
+            color: #3e4152;
+            border: 1px solid #d4d5d9;
+            color: #fff;
+            background-color: #ff3e6c;
+            border-color: #ff2459;
+            display: flex;
+            justify-content: center;
+        }
+
+        .a-productCount {
+            border: 1px solid;
+            z-index: 10;
+            position: absolute;
+            top: -5px;
+            right: -1px;
+            color: #fff;
+            background: #ff3e6c;
+            font-weight: 700;
+            border-radius: 50%;
+            font-size: 11px;
+            display: inline-block;
+            font-family: helvetica, arial, sans-serif;
+            width: 19px;
+            height: 19px;
+            text-align: center;
+            line-height: 19px;
+            /* display: none; */
+        }
+
+
+        .a-prdSize {
+            padding-bottom: 5px;
+        }
+
+        .a-prdSize .a-cardSz h4 {
+            color: #3e4152;
+            font-size: 14px;
+            /* font-weight: 700; */
+            /* margin-bottom: -6px; */
+            line-height: 1.33;
+            padding-left: 8px;
+            text-align: left;
+        }
+
+        .a-prdSize .a-cardSz {
+            margin-bottom: 5px;
+        }
+
+        .a-prdSize .a-cardSz h4 span {
+            /* margin-bottom: 5px; */
+            display: inline-block;
+        }
+
+        /* .a-sizeLtCnt{
+            margin-bottom: 18px;
+        } */
+        .a-sizeLtCnt .a-sizeList {
+            padding-top: 0;
+            margin: 0;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            white-space: nowrap;
+            display: block;
+            list-style: none;
+            /* padding-left: 18px; */
+            /* padding-bottom: 18px; */
+        }
+
+        .a-sizeLtCnt .a-sizeList [option][selected] button {
+            background-color: #ff3e6c;
+            color: #fff;
+            border: 1px solid #ff3e6c;
+        }
+
+        .a-sizeLtCnt .a-sizeList div {
+            vertical-align: top;
+            display: inline-block;
+            padding-left: 0;
+            padding-right: 3px;
+        }
+
+        .a-sizeLtCnt .a-sizeList [option] button {
+            /* min-width: 50px;
+            height: 50px; */
+            border-radius: 50px;
+            font-weight: 400;
+            color: #535766;
+            /* border-color: #535766; */
+            position: relative;
+            border: 1px solid #535766;
+            background-color: #fff;
+            display: inline-block;
+            margin-bottom: 0;
+            /* font-weight: 700; */
+            text-align: center;
+            vertical-align: middle;
+            touch-action: manipulation;
+            cursor: pointer;
+            background-image: none;
+            /* border: 1px solid transparent; */
+            white-space: nowrap;
+            outline: 0;
+            /* padding: 10px 12px; */
+            font-size: 13px;
+            line-height: 1.42857143;
+        }
+
+
+        /*------------ sort filter start -------------- */
+        .dropDown{
+            position: fixed;
+            bottom: 0;
+            z-index: 1;
+            background: #fff;
+            width: 100%;
+            height: 50px;
+            padding: 10px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .dropDown .a-col1, .dropDown .a-col2  {
+            position: relative;
+        }
+        .dropDown .test amp-img{
+            position: absolute;
+            top: 20px;
+            left: 55%;
+        }
+        .test{
+            border-right: 1px solid #eaeaec;
+            width: 100%;
+            padding: 20px 40px 20px 0;
+            text-align: center;
+        }
+
+        #my-sortLB{
+            background: rgba(0, 0, 0, 0.4);
+        }
+        .a-sortLB{
+            position: fixed;
+            z-index: 1;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .a-sortBy{
+            background-color: #fff;
+            padding: 20px;
+            /* position: absolute; */
+            /* border: 0; */
+            /* bottom: 0; */
+            height: 30%;
+            width: 100%;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            box-sizing: border-box;
+        }
+        .a-sortBy h3{
+            border-bottom: 1px solid #eaeaec;
+            padding: 0 0 10px 0;
+        }
+        .a-sortByList ul li{
+            font-size: 14px;
+            padding: 17px 17px 17px 50px;
+            position: relative;
+        }
+        .a-sortByList ul li amp-img{
+            position: absolute;
+            left: 16px;
+        }
+        .a-sortByList ul li amp-img.a-lowhigh{
+            transform: rotate(180deg);
+        }
+
+
+        /*------------ sort filter end -------------- */
+
+
+    </style>
+
+    <style amp-boilerplate>
+        body {
+            -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            animation: -amp-start 8s steps(1, end) 0s 1 normal both
+        }
+
+        @-webkit-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-moz-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-ms-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-o-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+    </style><noscript>
+        <style amp-boilerplate>
+            body {
+                -webkit-animation: none;
+                -moz-animation: none;
+                -ms-animation: none;
+                animation: none
+            }
+        </style>
+    </noscript>
+</head>
+
+<body>
+<amp-script layout="fixed-height" height="6000" width="auto" script="productScript" data-ampdevmode>
+    <header class="a-head">
+        <a href="#">
+            <amp-img src="/assets/images/header-logo.png" width="40" height="25" layout="intrinsic" alt="logo"></amp-img>
+            Shoppy
+        </a>
+        <a class="a-headerCart" href="/checkout.html">
+            <!-- <div class="a-productCount" id="productCount" [text]="CartBtn.clickCounts" [hidden]="CartBtn.clickCounts < 1" hidden></div> -->
+            <div class="a-productCount" id="productCount"></div>
+            <amp-img src="/assets/images/cart.png" width="25" height="25" layout="intrinsic" alt="shopping-card" on="tap:cartPopUp-Black.toggleVisibility" role="" tabindex=""></amp-img>
+        </a>
+    </header>
+        <!-- <amp-state id="CartBtn">
+            <script type="application/json">
+                {
+                    "clickCounts": 0
+                }
+            </script>
+        </amp-state> -->
+
+    <div class="dropDown">
+        <div class="test a-col1" on="tap:my-sortLB.toggleVisibility" role="" tabindex="">
+            <h4> Sort By</h4>
+            <amp-img src="/assets/images/sort.png" height="20" width="20"></amp-img>
+        </div>
+        <div class="test a-col2">
+            <h4> Filter</h4>
+            <amp-img src="/assets/images/filter.png" height="15" width="15"></amp-img>
+        </div>
+    </div>
+    <div class="a-sortLB" id="my-sortLB" hidden>
+        <div style="height: 70vh; outline: none;" on="tap:my-sortLB.hide" role="button" tabindex="0"></div>
+        <div class="a-sortBy">
+            <h3>SORT BY</h3>
+            <div class="a-sortByList">
+                <ul>
+                    <li id="highlow" on="tap:my-sortLB.hide" role="button" tabindex="0">
+                        <span>Price - High to Low</span>
+                        <amp-img src="/assets/images/sortBy.png" class="a-highlow" height="20" width="20"></amp-img>
+                    </li>
+                    <li id="lowhigh" on="tap:my-sortLB.hide" role="button" tabindex="0">
+                        <span>Price - Low to High</span>
+                        <amp-img src="/assets/images/sortBy.png" class="a-lowhigh" height="20" width="20"></amp-img>
+                    </li>
+                    <li id="rating" on="tap:my-sortLB.hide" role="button" tabindex="0">
+                        <span>Customer Rating</span>
+                        <amp-img src="/assets/images/stars-rating.png" class="rating" height="20" width="20"></amp-img>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <section class="a-product">
+    <!-- <amp-list class="a-product" layout="fixed-height" height="1000" src="https://dummyjson.com/products"
+        items="products" binding="no" >
+        <template type="amp-mustache"> -->
+            <div class="a-prdBk" id="prodCards">
+                <!-- <div class="a-prdCrd">
+                    <a href="">
+                        <div class="a-cardImg">
+                            <amp-img src="{{thumbnail}}" width="200" height="250" layout="intrinsic"
+                                alt="Dream-Beauty-Fashion"></amp-img>
+                        </div>
+                        <div class="a-text-md">
+                            <h3 class="a-prodTit">{{title}}</h3>
+                            <h4 class="a-des">{{description}}</h4>
+                            <div class="a-prcCnt">
+                                <span class="a-price">
+                                    <svg width="17" height="17" viewBox="0 0 24 24" class="rupees" fill="#282C3F">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <path d="M0 0h24v24H0z" opacity="0"></path>
+                                            <path fill="#282C3F"
+                                                d="M7 6.215h4.962v2.43H7.505L7.13 9.858h4.764a3.05 3.05 0 01-.827 1.539 2.99 2.99 0 01-2.022.895l-1.361-.003a.304.304 0 00-.214.519l6.717 6.779 1.697-.004-6.107-6.16a4.193 4.193 0 002.14-1.167 4.256 4.256 0 001.198-2.398h2.474l.376-1.215h-2.799v-2.43h3.496V5H7v1.215z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    <span class="s-prcVl">{{price}} </span>
+                                </span>
+                                <span>
+                                    <span class="orig-price price-font">
+                                        <svg width="10" height="10" viewBox="0 0 9 10" class="strike-rupees">
+                                            <g fill="#282C3F">
+                                                <path
+                                                    d="M1.951 5.845l3.91 3.602-.902.376L.7 5.845l.452-.711c.186-.005.392-.02.615-.048a5.2 5.2 0 001.347-.356c.218-.09.42-.201.604-.331.185-.13.345-.281.479-.455.134-.173.231-.371.29-.594H.865v-.841h3.644a1.759 1.759 0 00-.284-.667 1.826 1.826 0 00-.567-.512 2.964 2.964 0 00-.865-.332A5.22 5.22 0 001.63.882H.864V0h6.2v.882H4.18c.173.077.33.174.468.29a2.09 2.09 0 01.612.848c.064.162.11.325.137.489h1.668v.84H5.383a2.38 2.38 0 01-.43 1.03 3.095 3.095 0 01-.8.748 4.076 4.076 0 01-1.043.482 6.15 6.15 0 01-1.159.236z">
+                                                </path>
+                                                <path d="M0 6.104v-.792h8.14v.792z"></path>
+                                            </g>
+                                        </svg>
+                                        <span class="a-prcVl"> 1099 </span>
+                                    </span>
+                                </span>
+                                <span class="a-discPcn"><span>({{discountPercentage}}%)</span></span>
+                            </div>
+                            <div class="plpXceleratorInfoTag"></div>
+                        </div>
+                        <div class="a-WshLt">
+                            <svg width="24" height="24" viewBox="0 0 24 24">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g fill="#3E4152">
+                                        <path
+                                            d="M8.1703,4.473425 C6.9537,4.473425 5.8134,4.946625 4.95975,5.805525 C4.10435,6.666175 3.63325,7.815575 3.63325,9.042675 C3.63325,10.269775 4.10435,11.419525 4.95975,12.280175 L12,19.362425 L19.0406,12.279825 C19.89565,11.419525 20.36675,10.270125 20.36675,9.042675 C20.36675,7.815575 19.89565,6.665825 19.0406,5.805875 C19.0406,5.805875 19.0406,5.805525 19.04025,5.805525 C18.1866,4.946625 17.0463,4.473425 15.8297,4.473425 C14.6138,4.473425 13.4742,4.946275 12.62055,5.804475 C12.29225,6.134525 11.70845,6.134875 11.3798,5.804475 C10.5258,4.946275 9.3862,4.473425 8.1703,4.473425 L8.1703,4.473425 Z M12.02835,21.276575 L11.972,21.276575 C11.6304,21.276575 11.2965,21.137625 11.05605,20.895075 L3.71865,13.513925 C2.53495,12.323225 1.88325,10.735275 1.88325,9.042675 C1.88325,7.350075 2.53495,5.762475 3.71865,4.571775 C4.9034,3.379675 6.48435,2.723425 8.1703,2.723425 C9.5759,2.723425 10.90905,3.179825 12,4.022625 C13.0913,3.179825 14.4241,2.723425 15.8297,2.723425 C17.516,2.723425 19.09695,3.379675 20.2817,4.572125 C21.46505,5.762475 22.11675,7.350075 22.11675,9.042675 C22.11675,10.735625 21.46505,12.323225 20.2817,13.513925 L12.94325,20.895775 C12.6993,21.141475 12.3745,21.276575 12.02835,21.276575 L12.02835,21.276575 Z">
+                                        </path>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="a-prdSize">
+                        <div class="a-cardSz">
+                            <div class="a-col23">
+                                <h4 class="card-title"><span class="select-size">Select Size</span></h4>
+                            </div>
+                        </div>
+                        <div class="a-sizeLtCnt">
+                            <amp-selector class="a-sizeList" layout="container">
+                                <div option="0"><button class="btn default outline   size-btn" id=""><span
+                                            style="font-weight: 600;">XS</span></button>
+                                </div>
+                                <div option="1"><button class="btn default outline   size-btn" id=""><span
+                                            style="font-weight: 600;">S</span></button>
+                                </div>
+                                <div option="2"><button class="btn default outline   size-btn" id=""><span
+                                            style="font-weight: 600;">M</span></button>
+                                </div>
+                                <div option="3"><button class="btn default outline   size-btn" id=""><span
+                                            style="font-weight: 600;">L</span></button>
+                                </div>
+                                <div option="4"><button class="btn default outline   size-btn" id=""><span
+                                            style="font-weight: 600;">XL</span></button>
+                                </div>
+                            </amp-selector>
+
+                        </div>
+                        <div>
+                            <div class="a-szRecoCnt">
+                                <div class="a-recoCnt">
+                                    <div class="a-recText">
+                                        <div class=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="a-pdpAcBt">
+                        <div class="a-width-60">
+                            <div class="a-rplCnt">
+                                <button class="a-btnPry a-addBtnPry" id="add{{id}}"
+                                    on="tap:AMP.setState({CartBtn : {clickCounts : CartBtn.clickCounts + 1}}), add{{id}}.hide, remove{{id}}.show">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" class="atb-button-icon">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <path fill="#ffffff"
+                                                d="M4.012 20.718L5.246 7.314H7.27v1.763a.733.733 0 101.466 0V7.314h6.528v1.763a.733.733 0 001.466 0V7.314h2.024l1.234 13.404H4.012zM12 3.282c1.56 0 2.865 1.1 3.187 2.565H8.813A3.268 3.268 0 0112 3.282zm8.15 3.228a.733.733 0 00-.73-.663h-2.747A4.734 4.734 0 0012 1.816a4.734 4.734 0 00-4.673 4.03H4.58a.733.733 0 00-.73.664L2.475 21.38a.734.734 0 00.73.804h17.59a.733.733 0 00.73-.803L20.15 6.51z">
+                                            </path>
+                                            <path d="M0 0h24v24H0z" opacity="0.05"></path>
+                                        </g>
+                                    </svg> ADD TO BAG
+                                </button>
+                                <button class="a-btnPry a-remvPry" id="remove{{id}}"
+                                    on="tap:AMP.setState({ CartBtn: { clickCounts: CartBtn.clickCounts >= 1 ? CartBtn.clickCounts - 1 : 1 } }), add{{id}}.show, remove{{id}}.hide"
+                                    hidden>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" class="atb-button-icon">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <path fill="#ffffff"
+                                                d="M4.012 20.718L5.246 7.314H7.27v1.763a.733.733 0 101.466 0V7.314h6.528v1.763a.733.733 0 001.466 0V7.314h2.024l1.234 13.404H4.012zM12 3.282c1.56 0 2.865 1.1 3.187 2.565H8.813A3.268 3.268 0 0112 3.282zm8.15 3.228a.733.733 0 00-.73-.663h-2.747A4.734 4.734 0 0012 1.816a4.734 4.734 0 00-4.673 4.03H4.58a.733.733 0 00-.73.664L2.475 21.38a.734.734 0 00.73.804h17.59a.733.733 0 00.73-.803L20.15 6.51z">
+                                            </path>
+                                            <path d="M0 0h24v24H0z" opacity="0.05"></path>
+                                        </g>
+                                    </svg> REMOVE
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <!-- </template>
+        </amp-list> -->
+    </section>
+</amp-script>
+
+
+    <div class="style" style="height: 200px;"></div>
+
+    <script id="productScript" type="text/plain" target="amp-script">
+
+        var productCount = document.getElementById("productCount");
+        var addBtnPry = document.querySelectorAll(".a-addBtnPry");
+        var removeBtnPry = document.querySelectorAll(".a-remvPry");
+        var addRemoveBnt = document.querySelectorAll(".a-btnPry");
+        var prodCards = document.getElementById("prodCards");
+        var counter = 0;
+        var strVal = "";
+        var lowhigh = document.getElementById("lowhigh");
+        var highlow = document.getElementById("highlow");
+        console.log("suman")
+        // console.log(addBtnPry);
+
+
+        var counterObj1 = JSON.parse(localStorage.getItem("cartObj") || "{}");
+        var cartGetData = Object.keys(counterObj1).length;
+        productCount.innerHTML = cartGetData;
+        if(cartGetData <= 0){
+            productCount.style.display = "none";
+        }
+
+
+        async function logProductItem() {
+            const response = await fetch("https://dummyjson.com/products");
+            const productItem = await response.json();
+            console.log("productItem.produtc", productItem.products[0].id);
+
+            var priceAll = productItem.products;
+
+            function sortByPriceAscending(priceAll) {
+                for (let i = 0; i < priceAll.length - 1; i++) {
+                    for (let j = 0; j < priceAll.length - 1 - i; j++) {
+                        if (priceAll[j].price > priceAll[j + 1].price) {
+                            const temp = priceAll[j];
+                            priceAll[j] = priceAll[j + 1];
+                            priceAll[j + 1] = temp;
+                        }
+                    }
+                }
+            }
+            lowhigh.addEventListener('click', function(){
+                var strVal = "";
+                sortByPriceAscending(priceAll);
+                for(var items in priceAll){
+                    strVal += `<div class="a-prdCrd">
+                            <a href="/product-page.html" id="${priceAll[items].id}" class="a-prodLink">
+                                <div class="a-cardImg">
+                                    <amp-img src="${priceAll[items].thumbnail}" width="200" height="250" layout="intrinsic"
+                                        alt="Dream-Beauty-Fashion"></amp-img>
+                                </div>
+                                <div class="a-text-md">
+                                    <h3 class="a-prodTit">${priceAll[items].title}</h3>
+                                    <h4 class="a-des">${priceAll[items].description}</h4>
+                                    <div class="a-prcCnt">
+                                        <span class="a-price">
+                                            <amp-img src="/assets/images/rupee.png" class="rupees" height="15" width="15"></amp-img>
+                                            <span class="s-prcVl">${priceAll[items].price} </span>
+                                        </span>
+                                        <span>
+                                            <span class="orig-price price-font">
+                                                <amp-img src="/assets/images/rupee.png" class="rupees" height="15" width="15"></amp-img>
+                                                <span class="a-prcVl"> 1099 </span>
+                                            </span>
+                                        </span>
+                                        <span class="a-discPcn"><span>(${priceAll[items].discountPercentage}%)</span></span>
+                                    </div>
+                                    <div class="plpXceleratorInfoTag"></div>
+                                </div>
+                                <div class="a-WshLt">
+                                    <amp-img src="/assets/images/heart.png" class="rupees" height="15" width="15"></amp-img>
+                                </div>
+                            </a>
+                        </div>`
+                    }
+                prodCards.innerHTML = strVal;
+            });
+
+            function sortByPriceDecending(priceAll) {
+                for (let i = 0; i < priceAll.length - 1; i++) {
+                    for (let j = 0; j < priceAll.length - 1 - i; j++) {
+                        if (priceAll[j].price < priceAll[j + 1].price) {
+                            const temp = priceAll[j];
+                            priceAll[j] = priceAll[j + 1];
+                            priceAll[j + 1] = temp;
+                        }
+                    }
+                }
+            }
+            highlow.addEventListener('click', function(){
+                var strVal = "";
+                sortByPriceDecending(priceAll);
+                for(var items in priceAll){
+                    strVal += `<div class="a-prdCrd">
+                            <a href="/product-page.html" id="${priceAll[items].id}" class="a-prodLink">
+                                <div class="a-cardImg">
+                                    <amp-img src="${priceAll[items].thumbnail}" width="200" height="250" layout="intrinsic"
+                                        alt="Dream-Beauty-Fashion"></amp-img>
+                                </div>
+                                <div class="a-text-md">
+                                    <h3 class="a-prodTit">${priceAll[items].title}</h3>
+                                    <h4 class="a-des">${priceAll[items].description}</h4>
+                                    <div class="a-prcCnt">
+                                        <span class="a-price">
+                                            <amp-img src="/assets/images/rupee.png" class="rupees" height="15" width="15"></amp-img>
+                                            <span class="s-prcVl">${priceAll[items].price} </span>
+                                        </span>
+                                        <span>
+                                            <span class="orig-price price-font">
+                                                <amp-img src="/assets/images/rupee.png" class="rupees" height="15" width="15"></amp-img>
+                                                <span class="a-prcVl"> 1099 </span>
+                                            </span>
+                                        </span>
+                                        <span class="a-discPcn"><span>(${priceAll[items].discountPercentage}%)</span></span>
+                                    </div>
+                                    <div class="plpXceleratorInfoTag"></div>
+                                </div>
+                                <div class="a-WshLt">
+                                    <amp-img src="/assets/images/heart.png" class="rupees" height="15" width="15"></amp-img>
+                                </div>
+                            </a>
+                        </div>`
+                    }
+                prodCards.innerHTML = strVal;
+            });
+
+
+
+            for(var items in productItem.products){
+
+                strVal += `<div class="a-prdCrd">
+                        <a href="/product-page.html" id="${productItem.products[items].id}" class="a-prodLink">
+                            <div class="a-cardImg">
+                                <amp-img src="${productItem.products[items].thumbnail}" width="200" height="250" layout="intrinsic"
+                                    alt="Dream-Beauty-Fashion"></amp-img>
+                            </div>
+                            <div class="a-text-md">
+                                <h3 class="a-prodTit">${productItem.products[items].title}</h3>
+                                <h4 class="a-des">${productItem.products[items].description}</h4>
+                                <div class="a-prcCnt">
+                                    <span class="a-price">
+                                        <amp-img src="/assets/images/rupee.png" class="rupees" height="15" width="15"></amp-img>
+                                        <span class="s-prcVl">${productItem.products[items].price} </span>
+                                    </span>
+                                    <span>
+                                        <span class="orig-price price-font">
+                                            <amp-img src="/assets/images/rupee.png" class="rupees" height="15" width="15"></amp-img>
+                                            <span class="a-prcVl"> 1099 </span>
+                                        </span>
+                                    </span>
+                                    <span class="a-discPcn"><span>(${productItem.products[items].discountPercentage}%)</span></span>
+                                </div>
+                                <div class="plpXceleratorInfoTag"></div>
+                            </div>
+                            <div class="a-WshLt">
+                                <amp-img src="/assets/images/heart.png" class="rupees" height="15" width="15"></amp-img>
+                            </div>
+                        </a>
+                    </div>`
+            }
+
+            prodCards.innerHTML = strVal;
+            var prodLink = document.querySelectorAll(".a-prodLink");
+            prodLink.forEach((prodURL) => {
+                prodURL.addEventListener("click", (event) =>{
+                    var storeID = localStorage.setItem("productID", prodURL.id);
+                    // var value = event.target.value;
+                });
+            });   
+
+
+        }
+
+        logProductItem();
+
+
+    </script>
+
+</body>
+
+</html>

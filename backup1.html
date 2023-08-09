@@ -1,0 +1,1455 @@
+<!doctype html>
+<html ⚡>
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+    <script async custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>
+    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+    
+    <link rel="canonical" href=".html">
+    <title>Shoppy</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style amp-custom>
+    /* common css start */
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed, 
+        figure, figcaption, footer, header, hgroup, 
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure, 
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        body {
+            line-height: 1;
+            font-family: 'PT Sans', sans-serif;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        blockquote, q {
+            quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+        amp-selector [option][selected]{
+            border: none;
+            outline: none;
+        }
+        svg:not(:root) {
+            overflow: hidden;
+        }
+        button, select {
+            text-transform: none;
+        }
+
+        button, input {
+            overflow: visible;
+        }
+        /* common css end */
+        /* header start */
+        .a-hideDiv{
+            display: none;
+        }
+        .a-head {
+            padding: 15px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+            display: flex;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            /* bottom: 0; */
+            z-index: 10;
+            background: #fff;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .a-head a{
+            display: flex;
+            align-items: center;
+            color: #1270b9;
+            font-weight: 900;
+            font-size: 20px;
+            position: relative;
+        }
+        .a-head a amp-img{
+            margin-right: 10px;
+        }
+    
+        /* header end */
+
+
+      .a-product{
+        /* display: flex;
+        flex-wrap: wrap; */
+        margin-top: 85px;
+      }
+      .a-prdBk{
+        display: flex;
+        /* flex-wrap: wrap; */
+        width: 100%;
+        justify-content: space-evenly;
+      }
+      .a-prdCrd{
+        position: relative;
+        text-align: center;
+        width: 100%;
+        /* border-right: 0.5px solid #d4d5d9;
+        border-bottom: 0.5px solid #d4d5d9;
+        border-top: 1px solid #d4d5d9; */
+        border: 1px solid #d4d5d9;
+        padding-bottom: 10px;
+        /* float: left;
+        width: 50%;
+        margin: 0;
+        overflow: hidden; */
+      }
+      .a-prdCrd amp-img{
+        width: 100%;
+      }
+      .a-prdCrd amp-img img{
+        object-fit: cover;
+        object-position: top;
+      }
+      .a-prdCrd .a-text-md{
+        padding: 8px 0 15px;
+        font-size: 12px;
+      }
+      .a-prdCrd .a-text-md .a-prodTit{
+        padding-left: 8px;
+        font-weight: 700;
+        line-height: 1.57;
+        text-align: left;
+        color: #282c3f;
+        font-size: 13px;
+        width: 85%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: inherit;
+      }
+      .a-prdCrd .a-text-md .a-des {
+            opacity: .6;
+            padding-left: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 180px;
+            margin: 0;
+            font-size: 11px;
+            font-weight: 400;
+            text-align: left;
+            color: #282c3f;
+            height: 12px;
+        }
+        .a-prdCrd .a-text-md .a-prcCnt {
+            margin-top: -1px;
+            padding-left: 6px;
+            text-align: left;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .a-prdCrd .a-text-md .a-prcCnt .a-price {
+            font-weight: 700;
+            color: #282c3f;
+            font-size: 13px;
+        }
+        .a-prdCrd .a-text-md .a-prcCnt .a-price .rupees {
+            position: relative;
+            top: 4px;
+        }
+        .a-prdCrd .a-text-md .a-prcCnt .orig-price {
+            opacity: .4;
+            color: #282c3f;
+            text-decoration: line-through;
+            font-size: 13px;
+        }
+        .a-prdCrd .a-text-md .a-prcCnt .orig-price .strike-rupees {
+            position: relative;
+            top: 1px;
+        }
+        .a-prdCrd .a-text-md .a-prcCnt .orig-price .a-prcVl {
+        	position: relative;
+            left: -2px;
+        }
+        .a-prdCrd .a-text-md .a-prcCnt .a-discPcn {
+            color: #ff905a;
+            font-weight: 700;
+            font-size: 11px;
+            white-space: nowrap;
+        }
+        .a-WshLt{
+            color: #282c3f;
+            display: inline-block;
+            position: absolute;
+            bottom: 35%;
+            right: 5px;
+            /* top: 2px; */
+            padding-top: 4px;
+            padding-left: 15px;
+            height: 38px;
+        }
+        .a-WshLt svg:not(:root) {
+            overflow: hidden;
+        }
+
+
+        .a-pdpAcBt{
+            padding: 8px;
+        }
+        .a-pdpAcBt .a-grid{
+            background: #fff;
+            margin: 0 0 16px 0;
+            display: flex;
+            justify-self: unset;
+        }
+        .a-rplCnt{
+            position: relative;
+            overflow: hidden;
+        }
+        .a-btnPry svg{
+            padding-right: 5px;
+        }
+        .a-pdpAcBt .a-btnPry {
+            /* display: block; */
+            margin-bottom: 0;
+            font-weight: 700;
+            text-align: center;
+            touch-action: manipulation;
+            cursor: pointer;
+            background-image: none;
+            border: 1px solid transparent;
+            white-space: nowrap;
+            outline: 0;
+            padding: 10px 12px;
+            font-size: 13px;
+            line-height: 1.42857143;
+            border-radius: 4px;
+            background-color: #fff;
+            width: 100%;
+            color: #3e4152;
+            border: 1px solid #d4d5d9;
+            color: #fff;
+            background-color: #ff3e6c;
+            border-color: #ff2459;
+            display: flex;
+            justify-content: center;
+        }
+        .a-productCount{
+            border: 1px solid;
+            z-index: 10;
+            position: absolute;
+            top: -5px;
+            right: -1px;
+            color: #fff;
+            background: #ff3e6c;
+            font-weight: 700;
+            border-radius: 50%;
+            font-size: 11px;
+            display: inline-block;
+            font-family: helvetica,arial,sans-serif;
+            width: 19px;
+            height: 19px;
+            text-align: center;
+            line-height: 19px;
+        }
+
+
+        .a-prdSize{
+            padding-bottom: 5px;
+        }
+        .a-prdSize .a-cardSz h4 {
+            color: #3e4152;
+            font-size: 14px;
+            /* font-weight: 700; */
+            /* margin-bottom: -6px; */
+            line-height: 1.33;
+            padding-left: 8px;
+            text-align: left;
+        }
+        .a-prdSize .a-cardSz{
+            margin-bottom: 5px;
+        }
+        .a-prdSize .a-cardSz h4 span{
+            /* margin-bottom: 5px; */
+            display: inline-block;
+        }
+        /* .a-sizeLtCnt{
+            margin-bottom: 18px;
+        } */
+        .a-sizeLtCnt .a-sizeList{
+            padding-top: 0;
+            margin: 0;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            white-space: nowrap;
+            display: block;
+            list-style: none;
+            /* padding-left: 18px; */
+            /* padding-bottom: 18px; */
+        }
+        .a-sizeLtCnt .a-sizeList [option][selected] button{
+            background-color: #ff3e6c;
+            color: #fff;
+            border: 1px solid #ff3e6c;
+        }
+        .a-sizeLtCnt .a-sizeList div{
+            vertical-align: top;
+            display: inline-block;
+            padding-left: 0;
+            padding-right: 3px;
+        }
+        .a-sizeLtCnt .a-sizeList [option] button{
+            /* min-width: 50px;
+            height: 50px; */
+            border-radius: 50px;
+            font-weight: 400;
+            color: #535766;
+            /* border-color: #535766; */
+            position: relative;
+            border: 1px solid #535766; 
+            background-color: #fff;
+            display: inline-block;
+            margin-bottom: 0;
+            /* font-weight: 700; */
+            text-align: center;
+            vertical-align: middle;
+            touch-action: manipulation;
+            cursor: pointer;
+            background-image: none;
+            /* border: 1px solid transparent; */
+            white-space: nowrap;
+            outline: 0;
+            /* padding: 10px 12px; */
+            font-size: 13px;
+            line-height: 1.42857143;
+        }
+
+        /* cart pop-up */
+        .a-crtPopUp{
+            width: 100%;
+            max-width: 500px;
+            position: fixed;
+            top: 70px;
+            right: 0;
+            z-index: 100;
+            /* margin: 5px 0px; */
+            border-top: 3px solid #f4f4f5;
+        }
+        .a-crtPopUp .a-cartCard{
+            background: #fff;
+            font-size: 14px;
+            padding: 12px 8px;
+            position: relative;
+            display: flex;
+            gap: 12px;
+        }
+        .itemContainer-base-brand{
+            font-size: 13px;
+            /* margin-top: 4px; */
+            font-weight: 700;
+            line-height: 16px;
+            color: #282c3f;
+        }
+        .itemContainer-base-itemLink{
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 16px;
+            color: #282c3f;
+            text-decoration: none;
+        }
+        .a-iCbsCt{
+            margin-top: 2px;
+            display: flex;
+            flex-direction: row;
+        }
+        .a-iCbsCt .a-iCbSell{
+            font-size: 12px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 62%;
+            display: inline;
+            color: #94969f;
+        }
+        .a-iCbcVc {
+            display: flex;
+            margin-top: 8px;
+            gap: 2px;
+            align-items: end;
+        }
+        .a-cartViewCount{
+            font-size: 11px;
+            font-weight: 700;
+            padding-left: 2px;
+        }
+        .a-cartViewText {
+            font-size: 11px;
+            margin-top: 1px;
+            padding-left: 2px;
+            color: #94969f;
+        }
+        .a-sizeAndQtyCt .a-sizeAndQty{
+            display: flex;
+            margin: 6px 0;
+        }
+        .a-sizeAndQtyCt .a-sizeAndQty .a-bsSize, .a-sizeAndQtyCt .a-sizeAndQty .a-quantity{
+            display: inline-block;
+            white-space: nowrap;
+            padding: 2px 8px;
+            background: #f5f5f6;
+            color: #282c3f;
+            font-weight: 700;
+            cursor: pointer;
+            margin-right: 12px;
+            border-radius: 2px;
+            line-height: 16px;
+        }
+        .a-sizeAndQtyCt .a-sizeAndQty .a-bsSize span{
+            font-size: 12px;
+            line-height: 18px;
+        }
+        .a-sizeAndQtyCt .a-sizeAndQty .a-bsSize svg, .a-sizeAndQtyCt .a-sizeAndQty .a-quantity svg{
+            padding: 0 0 3px 3px;
+        }
+        .a-bprice{
+            display: flex;
+            gap: 5px;
+            align-items: baseline;
+        }
+        .a-bprice .a-BpriceBold{
+            font-weight: 700;
+            color: #282c3f;
+            font-size: 14px;
+        }
+        .a-strikedAmount .a-BstrikedAmount{
+            font-weight: 400;
+            color: #282c3f;
+            font-size: 13px;
+            text-decoration: line-through;
+            opacity: 0.4;
+        }
+        .a-itemDiscount{
+            color: #ff905a;
+            font-weight: 700;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        .a-returnPeriod{
+            display: flex;
+            margin-top: 8px;
+        }
+        .a-returnIcon{
+            margin-right: 5px;
+        }
+        .a-returnText .a-returnDays{
+            font-size: 11px;
+            line-height: 17px;
+            color: #282c3f;
+            font-weight: 700;
+        }
+        .a-returnText{
+            font-size: 10px;
+            font-weight: 400;
+        }
+
+        /* cart popup end */
+
+
+    </style>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  </head>
+  <body>
+
+    <header class="a-head">
+        <a href="#">
+            <amp-img src="/assets/images/header-logo.jpg" width="40" height="25" layout="intrinsic" alt="logo"></amp-img>Shoppy
+        </a>
+        <a class="a-headerCart">
+            <div class="a-productCount" id="productCount" [text]="clickCounts" [hidden]="clickCounts < 1" hidden></div>
+            <amp-img src="/assets/images/cart.png" width="25" height="25" layout="intrinsic" alt="shopping-card" on="tap:cartPopUp-Black.toggleVisibility" role="" tabindex=""></amp-img>
+        </a>
+    </header>
+    <div class="a-crtPopUp" id="cartPopUp-Black" hidden [class]="a-showDiv ? 'a-crtPopUp' : 'a-hideDiv'">
+        <div class="a-cartCard">
+            <div class="a-itemCtn">
+                <a>
+                    <div>
+                        <amp-img src="/assets/images/tops/black-top/Dream-Beauty-Fashion.png" height="148"
+                            width="111"></amp-img>
+                        </picture>
+                    </div>
+                </a>
+            </div>
+            <div class="a-iCbIr">
+                <div class="a-iCbDtl">
+                    <div>
+                        <div class="itemContainer-base-brand">Dream Beauty Fashion</div>
+                        <a class="itemContainer-base-itemLink">Sania Women Black &amp; Beige Floral Printed Top</a>
+                    </div>
+                    <div class="a-iCbsCt">
+                        <div class="a-iCbSell">Sold by: DREAM BEAUTY FASHION</div>
+                    </div>
+                    <div class="a-iCbcVc">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                            <path fill="#FF3F6C"
+                                d="M7.998 4c-2.674 0-5.1 1.57-6.888 4.12a.625.625 0 000 .709c1.789 2.552 4.214 4.122 6.888 4.122 2.674 0 5.099-1.57 6.888-4.12a.629.629 0 000-.709C13.096 5.57 10.672 4 7.998 4zm.192 7.627c-1.775.12-3.241-1.45-3.13-3.357.092-1.573 1.28-2.848 2.746-2.946 1.775-.12 3.24 1.45 3.13 3.357-.095 1.57-1.283 2.845-2.746 2.946zm-.09-1.456c-.955.064-1.746-.78-1.683-1.806.05-.848.69-1.533 1.48-1.588.957-.065 1.747.78 1.684 1.806-.051.85-.693 1.536-1.48 1.588z">
+                            </path>
+                        </svg>
+                        <span class="a-cartViewCount">1540</span>
+                        <span class="a-cartViewText">People viewing now</span>
+                    </div>
+                    <div class="a-sizeAndQtyCt">
+                        <div class="a-sizeAndQty">
+                            <div class="a-bsSize">
+                                <span class="">Size: <span>M</span></span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="3" viewBox="0 0 6 3"
+                                    class="itemComponents-base-dropDown">
+                                    <path fill-rule="evenodd" d="M0 0h6L3 3z"></path>
+                                </svg>
+                            </div>
+                            <div class="a-quantity">
+                                <span class="">Qty: 1</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="3" viewBox="0 0 6 3"
+                                    class="itemComponents-base-dropDown">
+                                    <path fill-rule="evenodd" d="M0 0h6L3 3z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="a-bprice">
+                        <div class="a-BpriceBold">
+                            <div>
+                                <svg width="8" height="9" viewBox="0 0 8 10" class="itemComponents-base-rupeeBoldIcon">
+                                    <path fill-rule="nonzero"
+                                        d="M3.418 10 .898 5.604V4.568h.84c.336 0 .63-.047.882-.14.262-.103.476-.247.644-.434.178-.187.299-.41.364-.672H.898V2.286h2.716a1.694 1.694 0 0 0-.294-.644 1.289 1.289 0 0 0-.532-.434 1.678 1.678 0 0 0-.784-.168H.898V.004h6.314V1.04H5.014c.159.177.29.369.392.574.112.205.187.43.224.672h1.582v1.036H5.658c-.093.69-.36 1.232-.798 1.624-.438.383-1.003.644-1.694.784L5.91 10H3.418Z">
+                                    </path>
+                                </svg>395
+                            </div>
+                        </div>
+                        <span class="a-strikedAmount">
+                            <span class="a-BstrikedAmount">
+                                <svg width="7" height="9" viewBox="0 0 7 9" xmlns="http://www.w3.org/2000/svg"
+                                    class="itemComponents-base-rupeeIcon ">
+                                    <g clip-path="url(#clip0_674_1209)">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M0.966797 4.6993L3.27973 8.73777H4.52798L2.19057 4.88287C2.6647 4.81768 3.06996 4.69005 3.40632 4.5H7V3.5H4.29767C4.37186 3.30767 4.42008 3.09555 4.44231 2.86364H6.03325V2.08042H4.41785C4.38521 1.79487 4.30771 1.54604 4.18531 1.33392C4.06295 1.12179 3.90795 0.938227 3.72028 0.783217H6.03325V0H0.966797V0.783217H1.23603C1.65211 0.783217 2.00293 0.82809 2.28848 0.917833C2.58218 1.00758 2.8147 1.15035 2.98603 1.34615C3.15736 1.5338 3.27158 1.77855 3.32868 2.08042H0.966797V2.86364H3.34091C3.3155 3.11784 3.24801 3.32996 3.13843 3.5H0V4.5H0.966797V4.6993Z">
+                                        </path>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_674_1209">
+                                            <rect width="7" height="9"></rect>
+                                        </clipPath>
+                                    </defs>
+                                </svg>1,099
+                            </span>
+                        </span>
+                        <span class="a-itemDiscount">64% OFF</span>
+                    </div>
+                    <div class="a-returnPeriod">
+                        <div class="a-returnIcon">
+                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M6.63639 6.99013C6.84386 7.1976 6.84386 7.53397 6.63639 7.74143L5.7725 8.60533H8.27232C9.21251 8.60533 9.97949 7.84333 9.97949 6.89824C9.97949 5.95914 9.21859 5.19824 8.27949 5.19824H6.89116C6.59776 5.19824 6.35991 4.96039 6.35991 4.66699C6.35991 4.37359 6.59776 4.13574 6.89116 4.13574H8.27949C9.80539 4.13574 11.042 5.37234 11.042 6.89824C11.042 8.43232 9.79722 9.66783 8.27241 9.66783H5.77242L6.63639 10.5318C6.84386 10.7393 6.84386 11.0756 6.63639 11.2831C6.42893 11.4906 6.09256 11.4906 5.88509 11.2831L4.11426 9.51227C4.0417 9.43971 3.99452 9.35138 3.97271 9.25831C3.96352 9.21922 3.95866 9.17846 3.95866 9.13658C3.95866 9.05996 3.97488 8.98713 4.00407 8.92134C4.02519 8.87367 4.05366 8.82847 4.08949 8.78745C4.09828 8.77738 4.10745 8.76764 4.11697 8.75826L5.88509 6.99013C6.09256 6.78267 6.42893 6.78267 6.63639 6.99013Z"
+                                    fill="#282C3F"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M0.416992 7.50033C0.416992 3.58831 3.58831 0.416992 7.50033 0.416992C11.4123 0.416992 14.5837 3.58831 14.5837 7.50033C14.5837 11.4123 11.4123 14.5837 7.50033 14.5837C3.58831 14.5837 0.416992 11.4123 0.416992 7.50033ZM7.50033 1.47949C4.17511 1.47949 1.47949 4.17511 1.47949 7.50033C1.47949 10.8255 4.17511 13.5212 7.50033 13.5212C10.8255 13.5212 13.5212 10.8255 13.5212 7.50033C13.5212 4.17511 10.8255 1.47949 7.50033 1.47949Z"
+                                    fill="#282C3F"></path>
+                            </svg>
+                        </div>
+                        <div class="a-returnText">
+                            <span class="a-returnDays">14 days</span> return available
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="a-crtPopUp" id="cartPopUp-peach" hidden>
+        <div class="a-cartCard">
+            <div class="a-itemCtn">
+                <a>
+                    <div>
+                        <amp-img src="/assets/images/tops/black-top/Dream-Beauty-Fashion.png" height="148"
+                            width="111"></amp-img>
+                        </picture>
+                    </div>
+                </a>
+            </div>
+            <div class="a-iCbIr">
+                <div class="a-iCbDtl">
+                    <div>
+                        <div class="itemContainer-base-brand">Dream Beauty Fashion</div>
+                        <a class="itemContainer-base-itemLink">Sania Women Black &amp; Beige Floral Printed Top</a>
+                    </div>
+                    <div class="a-iCbsCt">
+                        <div class="a-iCbSell">Sold by: DREAM BEAUTY FASHION</div>
+                    </div>
+                    <div class="a-iCbcVc">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                            <path fill="#FF3F6C"
+                                d="M7.998 4c-2.674 0-5.1 1.57-6.888 4.12a.625.625 0 000 .709c1.789 2.552 4.214 4.122 6.888 4.122 2.674 0 5.099-1.57 6.888-4.12a.629.629 0 000-.709C13.096 5.57 10.672 4 7.998 4zm.192 7.627c-1.775.12-3.241-1.45-3.13-3.357.092-1.573 1.28-2.848 2.746-2.946 1.775-.12 3.24 1.45 3.13 3.357-.095 1.57-1.283 2.845-2.746 2.946zm-.09-1.456c-.955.064-1.746-.78-1.683-1.806.05-.848.69-1.533 1.48-1.588.957-.065 1.747.78 1.684 1.806-.051.85-.693 1.536-1.48 1.588z">
+                            </path>
+                        </svg>
+                        <span class="a-cartViewCount">1540</span>
+                        <span class="a-cartViewText">People viewing now</span>
+                    </div>
+                    <div class="a-sizeAndQtyCt">
+                        <div class="a-sizeAndQty">
+                            <div class="a-bsSize">
+                                <span class="">Size: <span>M</span></span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="3" viewBox="0 0 6 3"
+                                    class="itemComponents-base-dropDown">
+                                    <path fill-rule="evenodd" d="M0 0h6L3 3z"></path>
+                                </svg>
+                            </div>
+                            <div class="a-quantity">
+                                <span class="">Qty: 1</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="3" viewBox="0 0 6 3"
+                                    class="itemComponents-base-dropDown">
+                                    <path fill-rule="evenodd" d="M0 0h6L3 3z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="a-bprice">
+                        <div class="a-BpriceBold">
+                            <div>
+                                <svg width="8" height="9" viewBox="0 0 8 10" class="itemComponents-base-rupeeBoldIcon">
+                                    <path fill-rule="nonzero"
+                                        d="M3.418 10 .898 5.604V4.568h.84c.336 0 .63-.047.882-.14.262-.103.476-.247.644-.434.178-.187.299-.41.364-.672H.898V2.286h2.716a1.694 1.694 0 0 0-.294-.644 1.289 1.289 0 0 0-.532-.434 1.678 1.678 0 0 0-.784-.168H.898V.004h6.314V1.04H5.014c.159.177.29.369.392.574.112.205.187.43.224.672h1.582v1.036H5.658c-.093.69-.36 1.232-.798 1.624-.438.383-1.003.644-1.694.784L5.91 10H3.418Z">
+                                    </path>
+                                </svg>395
+                            </div>
+                        </div>
+                        <span class="a-strikedAmount">
+                            <span class="a-BstrikedAmount">
+                                <svg width="7" height="9" viewBox="0 0 7 9" xmlns="http://www.w3.org/2000/svg"
+                                    class="itemComponents-base-rupeeIcon ">
+                                    <g clip-path="url(#clip0_674_1209)">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M0.966797 4.6993L3.27973 8.73777H4.52798L2.19057 4.88287C2.6647 4.81768 3.06996 4.69005 3.40632 4.5H7V3.5H4.29767C4.37186 3.30767 4.42008 3.09555 4.44231 2.86364H6.03325V2.08042H4.41785C4.38521 1.79487 4.30771 1.54604 4.18531 1.33392C4.06295 1.12179 3.90795 0.938227 3.72028 0.783217H6.03325V0H0.966797V0.783217H1.23603C1.65211 0.783217 2.00293 0.82809 2.28848 0.917833C2.58218 1.00758 2.8147 1.15035 2.98603 1.34615C3.15736 1.5338 3.27158 1.77855 3.32868 2.08042H0.966797V2.86364H3.34091C3.3155 3.11784 3.24801 3.32996 3.13843 3.5H0V4.5H0.966797V4.6993Z">
+                                        </path>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_674_1209">
+                                            <rect width="7" height="9"></rect>
+                                        </clipPath>
+                                    </defs>
+                                </svg>1,099
+                            </span>
+                        </span>
+                        <span class="a-itemDiscount">64% OFF</span>
+                    </div>
+                    <div class="a-returnPeriod">
+                        <div class="a-returnIcon">
+                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M6.63639 6.99013C6.84386 7.1976 6.84386 7.53397 6.63639 7.74143L5.7725 8.60533H8.27232C9.21251 8.60533 9.97949 7.84333 9.97949 6.89824C9.97949 5.95914 9.21859 5.19824 8.27949 5.19824H6.89116C6.59776 5.19824 6.35991 4.96039 6.35991 4.66699C6.35991 4.37359 6.59776 4.13574 6.89116 4.13574H8.27949C9.80539 4.13574 11.042 5.37234 11.042 6.89824C11.042 8.43232 9.79722 9.66783 8.27241 9.66783H5.77242L6.63639 10.5318C6.84386 10.7393 6.84386 11.0756 6.63639 11.2831C6.42893 11.4906 6.09256 11.4906 5.88509 11.2831L4.11426 9.51227C4.0417 9.43971 3.99452 9.35138 3.97271 9.25831C3.96352 9.21922 3.95866 9.17846 3.95866 9.13658C3.95866 9.05996 3.97488 8.98713 4.00407 8.92134C4.02519 8.87367 4.05366 8.82847 4.08949 8.78745C4.09828 8.77738 4.10745 8.76764 4.11697 8.75826L5.88509 6.99013C6.09256 6.78267 6.42893 6.78267 6.63639 6.99013Z"
+                                    fill="#282C3F"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M0.416992 7.50033C0.416992 3.58831 3.58831 0.416992 7.50033 0.416992C11.4123 0.416992 14.5837 3.58831 14.5837 7.50033C14.5837 11.4123 11.4123 14.5837 7.50033 14.5837C3.58831 14.5837 0.416992 11.4123 0.416992 7.50033ZM7.50033 1.47949C4.17511 1.47949 1.47949 4.17511 1.47949 7.50033C1.47949 10.8255 4.17511 13.5212 7.50033 13.5212C10.8255 13.5212 13.5212 10.8255 13.5212 7.50033C13.5212 4.17511 10.8255 1.47949 7.50033 1.47949Z"
+                                    fill="#282C3F"></path>
+                            </svg>
+                        </div>
+                        <div class="a-returnText">
+                            <span class="a-returnDays">14 days</span> return available
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="a-crtPopUp" id="cartPopUp-white" hidden>
+        <div class="a-cartCard">
+            <div class="a-itemCtn">
+                <a>
+                    <div>
+                        <amp-img src="/assets/images/tops/black-top/Dream-Beauty-Fashion.png" height="148"
+                            width="111"></amp-img>
+                        </picture>
+                    </div>
+                </a>
+            </div>
+            <div class="a-iCbIr">
+                <div class="a-iCbDtl">
+                    <div>
+                        <div class="itemContainer-base-brand">Dream Beauty Fashion</div>
+                        <a class="itemContainer-base-itemLink">Sania Women Black &amp; Beige Floral Printed Top</a>
+                    </div>
+                    <div class="a-iCbsCt">
+                        <div class="a-iCbSell">Sold by: DREAM BEAUTY FASHION</div>
+                    </div>
+                    <div class="a-iCbcVc">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                            <path fill="#FF3F6C"
+                                d="M7.998 4c-2.674 0-5.1 1.57-6.888 4.12a.625.625 0 000 .709c1.789 2.552 4.214 4.122 6.888 4.122 2.674 0 5.099-1.57 6.888-4.12a.629.629 0 000-.709C13.096 5.57 10.672 4 7.998 4zm.192 7.627c-1.775.12-3.241-1.45-3.13-3.357.092-1.573 1.28-2.848 2.746-2.946 1.775-.12 3.24 1.45 3.13 3.357-.095 1.57-1.283 2.845-2.746 2.946zm-.09-1.456c-.955.064-1.746-.78-1.683-1.806.05-.848.69-1.533 1.48-1.588.957-.065 1.747.78 1.684 1.806-.051.85-.693 1.536-1.48 1.588z">
+                            </path>
+                        </svg>
+                        <span class="a-cartViewCount">1540</span>
+                        <span class="a-cartViewText">People viewing now</span>
+                    </div>
+                    <div class="a-sizeAndQtyCt">
+                        <div class="a-sizeAndQty">
+                            <div class="a-bsSize">
+                                <span class="">Size: <span>M</span></span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="3" viewBox="0 0 6 3"
+                                    class="itemComponents-base-dropDown">
+                                    <path fill-rule="evenodd" d="M0 0h6L3 3z"></path>
+                                </svg>
+                            </div>
+                            <div class="a-quantity">
+                                <span class="">Qty: 1</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="3" viewBox="0 0 6 3"
+                                    class="itemComponents-base-dropDown">
+                                    <path fill-rule="evenodd" d="M0 0h6L3 3z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="a-bprice">
+                        <div class="a-BpriceBold">
+                            <div>
+                                <svg width="8" height="9" viewBox="0 0 8 10" class="itemComponents-base-rupeeBoldIcon">
+                                    <path fill-rule="nonzero"
+                                        d="M3.418 10 .898 5.604V4.568h.84c.336 0 .63-.047.882-.14.262-.103.476-.247.644-.434.178-.187.299-.41.364-.672H.898V2.286h2.716a1.694 1.694 0 0 0-.294-.644 1.289 1.289 0 0 0-.532-.434 1.678 1.678 0 0 0-.784-.168H.898V.004h6.314V1.04H5.014c.159.177.29.369.392.574.112.205.187.43.224.672h1.582v1.036H5.658c-.093.69-.36 1.232-.798 1.624-.438.383-1.003.644-1.694.784L5.91 10H3.418Z">
+                                    </path>
+                                </svg>395
+                            </div>
+                        </div>
+                        <span class="a-strikedAmount">
+                            <span class="a-BstrikedAmount">
+                                <svg width="7" height="9" viewBox="0 0 7 9" xmlns="http://www.w3.org/2000/svg"
+                                    class="itemComponents-base-rupeeIcon ">
+                                    <g clip-path="url(#clip0_674_1209)">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M0.966797 4.6993L3.27973 8.73777H4.52798L2.19057 4.88287C2.6647 4.81768 3.06996 4.69005 3.40632 4.5H7V3.5H4.29767C4.37186 3.30767 4.42008 3.09555 4.44231 2.86364H6.03325V2.08042H4.41785C4.38521 1.79487 4.30771 1.54604 4.18531 1.33392C4.06295 1.12179 3.90795 0.938227 3.72028 0.783217H6.03325V0H0.966797V0.783217H1.23603C1.65211 0.783217 2.00293 0.82809 2.28848 0.917833C2.58218 1.00758 2.8147 1.15035 2.98603 1.34615C3.15736 1.5338 3.27158 1.77855 3.32868 2.08042H0.966797V2.86364H3.34091C3.3155 3.11784 3.24801 3.32996 3.13843 3.5H0V4.5H0.966797V4.6993Z">
+                                        </path>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_674_1209">
+                                            <rect width="7" height="9"></rect>
+                                        </clipPath>
+                                    </defs>
+                                </svg>1,099
+                            </span>
+                        </span>
+                        <span class="a-itemDiscount">64% OFF</span>
+                    </div>
+                    <div class="a-returnPeriod">
+                        <div class="a-returnIcon">
+                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M6.63639 6.99013C6.84386 7.1976 6.84386 7.53397 6.63639 7.74143L5.7725 8.60533H8.27232C9.21251 8.60533 9.97949 7.84333 9.97949 6.89824C9.97949 5.95914 9.21859 5.19824 8.27949 5.19824H6.89116C6.59776 5.19824 6.35991 4.96039 6.35991 4.66699C6.35991 4.37359 6.59776 4.13574 6.89116 4.13574H8.27949C9.80539 4.13574 11.042 5.37234 11.042 6.89824C11.042 8.43232 9.79722 9.66783 8.27241 9.66783H5.77242L6.63639 10.5318C6.84386 10.7393 6.84386 11.0756 6.63639 11.2831C6.42893 11.4906 6.09256 11.4906 5.88509 11.2831L4.11426 9.51227C4.0417 9.43971 3.99452 9.35138 3.97271 9.25831C3.96352 9.21922 3.95866 9.17846 3.95866 9.13658C3.95866 9.05996 3.97488 8.98713 4.00407 8.92134C4.02519 8.87367 4.05366 8.82847 4.08949 8.78745C4.09828 8.77738 4.10745 8.76764 4.11697 8.75826L5.88509 6.99013C6.09256 6.78267 6.42893 6.78267 6.63639 6.99013Z"
+                                    fill="#282C3F"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M0.416992 7.50033C0.416992 3.58831 3.58831 0.416992 7.50033 0.416992C11.4123 0.416992 14.5837 3.58831 14.5837 7.50033C14.5837 11.4123 11.4123 14.5837 7.50033 14.5837C3.58831 14.5837 0.416992 11.4123 0.416992 7.50033ZM7.50033 1.47949C4.17511 1.47949 1.47949 4.17511 1.47949 7.50033C1.47949 10.8255 4.17511 13.5212 7.50033 13.5212C10.8255 13.5212 13.5212 10.8255 13.5212 7.50033C13.5212 4.17511 10.8255 1.47949 7.50033 1.47949Z"
+                                    fill="#282C3F"></path>
+                            </svg>
+                        </div>
+                        <div class="a-returnText">
+                            <span class="a-returnDays">14 days</span> return available
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="a-crtPopUp" id="cartPopUp-red" hidden>
+        <div class="a-cartCard">
+            <div class="a-itemCtn">
+                <a>
+                    <div>
+                        <amp-img src="/assets/images/tops/black-top/Dream-Beauty-Fashion.png" height="148"
+                            width="111"></amp-img>
+                        </picture>
+                    </div>
+                </a>
+            </div>
+            <div class="a-iCbIr">
+                <div class="a-iCbDtl">
+                    <div>
+                        <div class="itemContainer-base-brand">Dream Beauty Fashion</div>
+                        <a class="itemContainer-base-itemLink">Sania Women Black &amp; Beige Floral Printed Top</a>
+                    </div>
+                    <div class="a-iCbsCt">
+                        <div class="a-iCbSell">Sold by: DREAM BEAUTY FASHION</div>
+                    </div>
+                    <div class="a-iCbcVc">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                            <path fill="#FF3F6C"
+                                d="M7.998 4c-2.674 0-5.1 1.57-6.888 4.12a.625.625 0 000 .709c1.789 2.552 4.214 4.122 6.888 4.122 2.674 0 5.099-1.57 6.888-4.12a.629.629 0 000-.709C13.096 5.57 10.672 4 7.998 4zm.192 7.627c-1.775.12-3.241-1.45-3.13-3.357.092-1.573 1.28-2.848 2.746-2.946 1.775-.12 3.24 1.45 3.13 3.357-.095 1.57-1.283 2.845-2.746 2.946zm-.09-1.456c-.955.064-1.746-.78-1.683-1.806.05-.848.69-1.533 1.48-1.588.957-.065 1.747.78 1.684 1.806-.051.85-.693 1.536-1.48 1.588z">
+                            </path>
+                        </svg>
+                        <span class="a-cartViewCount">1540</span>
+                        <span class="a-cartViewText">People viewing now</span>
+                    </div>
+                    <div class="a-sizeAndQtyCt">
+                        <div class="a-sizeAndQty">
+                            <div class="a-bsSize">
+                                <span class="">Size: <span>M</span></span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="3" viewBox="0 0 6 3"
+                                    class="itemComponents-base-dropDown">
+                                    <path fill-rule="evenodd" d="M0 0h6L3 3z"></path>
+                                </svg>
+                            </div>
+                            <div class="a-quantity">
+                                <span class="">Qty: 1</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="3" viewBox="0 0 6 3"
+                                    class="itemComponents-base-dropDown">
+                                    <path fill-rule="evenodd" d="M0 0h6L3 3z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="a-bprice">
+                        <div class="a-BpriceBold">
+                            <div>
+                                <svg width="8" height="9" viewBox="0 0 8 10" class="itemComponents-base-rupeeBoldIcon">
+                                    <path fill-rule="nonzero"
+                                        d="M3.418 10 .898 5.604V4.568h.84c.336 0 .63-.047.882-.14.262-.103.476-.247.644-.434.178-.187.299-.41.364-.672H.898V2.286h2.716a1.694 1.694 0 0 0-.294-.644 1.289 1.289 0 0 0-.532-.434 1.678 1.678 0 0 0-.784-.168H.898V.004h6.314V1.04H5.014c.159.177.29.369.392.574.112.205.187.43.224.672h1.582v1.036H5.658c-.093.69-.36 1.232-.798 1.624-.438.383-1.003.644-1.694.784L5.91 10H3.418Z">
+                                    </path>
+                                </svg>395
+                            </div>
+                        </div>
+                        <span class="a-strikedAmount">
+                            <span class="a-BstrikedAmount">
+                                <svg width="7" height="9" viewBox="0 0 7 9" xmlns="http://www.w3.org/2000/svg"
+                                    class="itemComponents-base-rupeeIcon ">
+                                    <g clip-path="url(#clip0_674_1209)">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M0.966797 4.6993L3.27973 8.73777H4.52798L2.19057 4.88287C2.6647 4.81768 3.06996 4.69005 3.40632 4.5H7V3.5H4.29767C4.37186 3.30767 4.42008 3.09555 4.44231 2.86364H6.03325V2.08042H4.41785C4.38521 1.79487 4.30771 1.54604 4.18531 1.33392C4.06295 1.12179 3.90795 0.938227 3.72028 0.783217H6.03325V0H0.966797V0.783217H1.23603C1.65211 0.783217 2.00293 0.82809 2.28848 0.917833C2.58218 1.00758 2.8147 1.15035 2.98603 1.34615C3.15736 1.5338 3.27158 1.77855 3.32868 2.08042H0.966797V2.86364H3.34091C3.3155 3.11784 3.24801 3.32996 3.13843 3.5H0V4.5H0.966797V4.6993Z">
+                                        </path>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_674_1209">
+                                            <rect width="7" height="9"></rect>
+                                        </clipPath>
+                                    </defs>
+                                </svg>1,099
+                            </span>
+                        </span>
+                        <span class="a-itemDiscount">64% OFF</span>
+                    </div>
+                    <div class="a-returnPeriod">
+                        <div class="a-returnIcon">
+                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M6.63639 6.99013C6.84386 7.1976 6.84386 7.53397 6.63639 7.74143L5.7725 8.60533H8.27232C9.21251 8.60533 9.97949 7.84333 9.97949 6.89824C9.97949 5.95914 9.21859 5.19824 8.27949 5.19824H6.89116C6.59776 5.19824 6.35991 4.96039 6.35991 4.66699C6.35991 4.37359 6.59776 4.13574 6.89116 4.13574H8.27949C9.80539 4.13574 11.042 5.37234 11.042 6.89824C11.042 8.43232 9.79722 9.66783 8.27241 9.66783H5.77242L6.63639 10.5318C6.84386 10.7393 6.84386 11.0756 6.63639 11.2831C6.42893 11.4906 6.09256 11.4906 5.88509 11.2831L4.11426 9.51227C4.0417 9.43971 3.99452 9.35138 3.97271 9.25831C3.96352 9.21922 3.95866 9.17846 3.95866 9.13658C3.95866 9.05996 3.97488 8.98713 4.00407 8.92134C4.02519 8.87367 4.05366 8.82847 4.08949 8.78745C4.09828 8.77738 4.10745 8.76764 4.11697 8.75826L5.88509 6.99013C6.09256 6.78267 6.42893 6.78267 6.63639 6.99013Z"
+                                    fill="#282C3F"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M0.416992 7.50033C0.416992 3.58831 3.58831 0.416992 7.50033 0.416992C11.4123 0.416992 14.5837 3.58831 14.5837 7.50033C14.5837 11.4123 11.4123 14.5837 7.50033 14.5837C3.58831 14.5837 0.416992 11.4123 0.416992 7.50033ZM7.50033 1.47949C4.17511 1.47949 1.47949 4.17511 1.47949 7.50033C1.47949 10.8255 4.17511 13.5212 7.50033 13.5212C10.8255 13.5212 13.5212 10.8255 13.5212 7.50033C13.5212 4.17511 10.8255 1.47949 7.50033 1.47949Z"
+                                    fill="#282C3F"></path>
+                            </svg>
+                        </div>
+                        <div class="a-returnText">
+                            <span class="a-returnDays">14 days</span> return available
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Ref: https://amp.dev/documentation/components/amp-script/ -->
+    <amp-script layout="container" script="productScript" data-ampdevmode>
+        <!-- <amp-state id="CartBtn">
+            <script type="application/json">
+                {
+                    "clickCounts": 0
+                }
+            </script>
+        </amp-state> -->
+
+        <section class="a-product">
+            <div class="a-prdBk">
+                <div class="a-prdCrd">
+                    <a href="/product-page.html">
+                        <div class="a-cardImg">
+                            <amp-img src="/assets/images/tops/black-top/Dream-Beauty-Fashion.png" width="200" height="250" layout="intrinsic" alt="Dream-Beauty-Fashion"></amp-img>
+                        </div>
+                        <div class="a-text-md">
+                            <h3 class="a-prodTit">Dream Beauty Fashion</h3>
+                            <h4 class="a-des">Women Printed Top</h4>
+                            <div class="a-prcCnt">
+                                <span class="a-price">
+                                    <svg width="17" height="17" viewBox="0 0 24 24" class="rupees" fill="#282C3F">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <path d="M0 0h24v24H0z" opacity="0"></path>
+                                            <path fill="#282C3F" d="M7 6.215h4.962v2.43H7.505L7.13 9.858h4.764a3.05 3.05 0 01-.827 1.539 2.99 2.99 0 01-2.022.895l-1.361-.003a.304.304 0 00-.214.519l6.717 6.779 1.697-.004-6.107-6.16a4.193 4.193 0 002.14-1.167 4.256 4.256 0 001.198-2.398h2.474l.376-1.215h-2.799v-2.43h3.496V5H7v1.215z"></path>
+                                        </g>
+                                    </svg>
+                                    <span class="s-prcVl">395 </span>
+                                </span>
+                                <span>
+                                    <span class="orig-price price-font">
+                                        <svg width="10"
+                                            height="10" viewBox="0 0 9 10" class="strike-rupees">
+                                            <g fill="#282C3F">
+                                                <path d="M1.951 5.845l3.91 3.602-.902.376L.7 5.845l.452-.711c.186-.005.392-.02.615-.048a5.2 5.2 0 001.347-.356c.218-.09.42-.201.604-.331.185-.13.345-.281.479-.455.134-.173.231-.371.29-.594H.865v-.841h3.644a1.759 1.759 0 00-.284-.667 1.826 1.826 0 00-.567-.512 2.964 2.964 0 00-.865-.332A5.22 5.22 0 001.63.882H.864V0h6.2v.882H4.18c.173.077.33.174.468.29a2.09 2.09 0 01.612.848c.064.162.11.325.137.489h1.668v.84H5.383a2.38 2.38 0 01-.43 1.03 3.095 3.095 0 01-.8.748 4.076 4.076 0 01-1.043.482 6.15 6.15 0 01-1.159.236z"></path>
+                                                <path d="M0 6.104v-.792h8.14v.792z"></path>
+                                            </g>
+                                        </svg>
+                                        <span class="a-prcVl"> 1099 </span>
+                                    </span>
+                                </span>
+                                <span class="a-discPcn"><span>(64% OFF)</span></span>
+                            </div>
+                            <div class="plpXceleratorInfoTag"></div>
+                        </div>
+                        <div class="a-WshLt">
+                            <svg width="24" height="24" viewBox="0 0 24 24"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g fill="#3E4152"><path d="M8.1703,4.473425 C6.9537,4.473425 5.8134,4.946625 4.95975,5.805525 C4.10435,6.666175 3.63325,7.815575 3.63325,9.042675 C3.63325,10.269775 4.10435,11.419525 4.95975,12.280175 L12,19.362425 L19.0406,12.279825 C19.89565,11.419525 20.36675,10.270125 20.36675,9.042675 C20.36675,7.815575 19.89565,6.665825 19.0406,5.805875 C19.0406,5.805875 19.0406,5.805525 19.04025,5.805525 C18.1866,4.946625 17.0463,4.473425 15.8297,4.473425 C14.6138,4.473425 13.4742,4.946275 12.62055,5.804475 C12.29225,6.134525 11.70845,6.134875 11.3798,5.804475 C10.5258,4.946275 9.3862,4.473425 8.1703,4.473425 L8.1703,4.473425 Z M12.02835,21.276575 L11.972,21.276575 C11.6304,21.276575 11.2965,21.137625 11.05605,20.895075 L3.71865,13.513925 C2.53495,12.323225 1.88325,10.735275 1.88325,9.042675 C1.88325,7.350075 2.53495,5.762475 3.71865,4.571775 C4.9034,3.379675 6.48435,2.723425 8.1703,2.723425 C9.5759,2.723425 10.90905,3.179825 12,4.022625 C13.0913,3.179825 14.4241,2.723425 15.8297,2.723425 C17.516,2.723425 19.09695,3.379675 20.2817,4.572125 C21.46505,5.762475 22.11675,7.350075 22.11675,9.042675 C22.11675,10.735625 21.46505,12.323225 20.2817,13.513925 L12.94325,20.895775 C12.6993,21.141475 12.3745,21.276575 12.02835,21.276575 L12.02835,21.276575 Z"></path></g></g></svg>
+                        </div>
+                    </a>
+                    <div class="a-prdSize">
+                        <div class="a-cardSz">
+                            <div class="a-col23">
+                                <h4 class="card-title"><span class="select-size">Select Size</span></h4>
+                            </div>
+                        </div>
+                        <div class="a-sizeLtCnt">
+                            <amp-selector class="a-sizeList" layout="container">
+                                <div option="0"><button class="btn default outline   size-btn" id=""><span style="font-weight: 600;">XS</span></button>
+                                </div>
+                                <div option="1"><button class="btn default outline   size-btn" id=""><span style="font-weight: 600;">S</span></button>
+                                </div>
+                                <div option="2"><button class="btn default outline   size-btn" id=""><span style="font-weight: 600;">M</span></button>
+                                </div>
+                                <div option="3"><button class="btn default outline   size-btn" id=""><span style="font-weight: 600;">L</span></button>
+                                </div>
+                                <div option="4"><button class="btn default outline   size-btn" id=""><span style="font-weight: 600;">XL</span></button>
+                                </div>
+                            </amp-selector>
+                            
+                        </div>
+                        <div>
+                            <div class="a-szRecoCnt">
+                                <div class="a-recoCnt">
+                                    <div class="a-recText">
+                                        <div class=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="a-pdpAcBt">
+                        <div class="a-width-60">
+                            <div class="a-rplCnt">
+                                <button class="a-btnPry a-addBtnPry" id="add" on="tap:AMP.setState({clickCounts : clickCounts + 1}), add.hide, remove.show">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" class="atb-button-icon">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <path fill="#ffffff"
+                                                d="M4.012 20.718L5.246 7.314H7.27v1.763a.733.733 0 101.466 0V7.314h6.528v1.763a.733.733 0 001.466 0V7.314h2.024l1.234 13.404H4.012zM12 3.282c1.56 0 2.865 1.1 3.187 2.565H8.813A3.268 3.268 0 0112 3.282zm8.15 3.228a.733.733 0 00-.73-.663h-2.747A4.734 4.734 0 0012 1.816a4.734 4.734 0 00-4.673 4.03H4.58a.733.733 0 00-.73.664L2.475 21.38a.734.734 0 00.73.804h17.59a.733.733 0 00.73-.803L20.15 6.51z">
+                                            </path>
+                                            <path d="M0 0h24v24H0z" opacity="0.05"></path>
+                                        </g>
+                                    </svg> ADD TO BAG
+                                </button>
+                                <button class="a-btnPry a-remvPry" id="remove" on="tap:AMP.setState({ clickCounts: clickCounts >= 1 ? clickCounts - 1 : 1 } ), add.show, remove.hide" hidden>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" class="atb-button-icon">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <path fill="#ffffff"
+                                                d="M4.012 20.718L5.246 7.314H7.27v1.763a.733.733 0 101.466 0V7.314h6.528v1.763a.733.733 0 001.466 0V7.314h2.024l1.234 13.404H4.012zM12 3.282c1.56 0 2.865 1.1 3.187 2.565H8.813A3.268 3.268 0 0112 3.282zm8.15 3.228a.733.733 0 00-.73-.663h-2.747A4.734 4.734 0 0012 1.816a4.734 4.734 0 00-4.673 4.03H4.58a.733.733 0 00-.73.664L2.475 21.38a.734.734 0 00.73.804h17.59a.733.733 0 00.73-.803L20.15 6.51z">
+                                            </path>
+                                            <path d="M0 0h24v24H0z" opacity="0.05"></path>
+                                        </g>
+                                    </svg> REMOVE
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="a-prdCrd">
+                    <div class="a-cardImg">
+                        <amp-img src="/assets/images/tops/peach-top/Chemistry-Women-Tops.png" width="200" height="250" layout="intrinsic" alt="Chemistry-Women-Tops"></amp-img>
+                    </div>
+                    <div class="a-text-md">
+                        <h3 class="a-prodTit">Chemistry</h3>
+                        <h4 class="a-des">Puff Sleeves Regular Top</h4>
+                        <div class="a-prcCnt">
+                            <span class="a-price">
+                                <svg width="17" height="17" viewBox="0 0 24 24" class="rupees" fill="#282C3F">
+                                    <g fill="none" fill-rule="evenodd">
+                                        <path d="M0 0h24v24H0z" opacity="0"></path>
+                                        <path fill="#282C3F" d="M7 6.215h4.962v2.43H7.505L7.13 9.858h4.764a3.05 3.05 0 01-.827 1.539 2.99 2.99 0 01-2.022.895l-1.361-.003a.304.304 0 00-.214.519l6.717 6.779 1.697-.004-6.107-6.16a4.193 4.193 0 002.14-1.167 4.256 4.256 0 001.198-2.398h2.474l.376-1.215h-2.799v-2.43h3.496V5H7v1.215z"></path>
+                                    </g>
+                                </svg>
+                                <span class="s-prcVl">376 </span>
+                            </span>
+                            <span>
+                                <span class="orig-price price-font">
+                                    <svg width="10"
+                                        height="10" viewBox="0 0 9 10" class="strike-rupees">
+                                        <g fill="#282C3F">
+                                            <path d="M1.951 5.845l3.91 3.602-.902.376L.7 5.845l.452-.711c.186-.005.392-.02.615-.048a5.2 5.2 0 001.347-.356c.218-.09.42-.201.604-.331.185-.13.345-.281.479-.455.134-.173.231-.371.29-.594H.865v-.841h3.644a1.759 1.759 0 00-.284-.667 1.826 1.826 0 00-.567-.512 2.964 2.964 0 00-.865-.332A5.22 5.22 0 001.63.882H.864V0h6.2v.882H4.18c.173.077.33.174.468.29a2.09 2.09 0 01.612.848c.064.162.11.325.137.489h1.668v.84H5.383a2.38 2.38 0 01-.43 1.03 3.095 3.095 0 01-.8.748 4.076 4.076 0 01-1.043.482 6.15 6.15 0 01-1.159.236z"></path>
+                                            <path d="M0 6.104v-.792h8.14v.792z"></path>
+                                        </g>
+                                    </svg>
+                                    <span class="a-prcVl"> 1299 </span>
+                                </span>
+                            </span>
+                            <span class="a-discPcn"><span>(71% OFF)</span></span>
+                        </div>
+                        <div class="plpXceleratorInfoTag"></div>
+                    </div>
+                    <div class="a-WshLt">
+                        <svg width="24" height="24" viewBox="0 0 24 24"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g fill="#3E4152"><path d="M8.1703,4.473425 C6.9537,4.473425 5.8134,4.946625 4.95975,5.805525 C4.10435,6.666175 3.63325,7.815575 3.63325,9.042675 C3.63325,10.269775 4.10435,11.419525 4.95975,12.280175 L12,19.362425 L19.0406,12.279825 C19.89565,11.419525 20.36675,10.270125 20.36675,9.042675 C20.36675,7.815575 19.89565,6.665825 19.0406,5.805875 C19.0406,5.805875 19.0406,5.805525 19.04025,5.805525 C18.1866,4.946625 17.0463,4.473425 15.8297,4.473425 C14.6138,4.473425 13.4742,4.946275 12.62055,5.804475 C12.29225,6.134525 11.70845,6.134875 11.3798,5.804475 C10.5258,4.946275 9.3862,4.473425 8.1703,4.473425 L8.1703,4.473425 Z M12.02835,21.276575 L11.972,21.276575 C11.6304,21.276575 11.2965,21.137625 11.05605,20.895075 L3.71865,13.513925 C2.53495,12.323225 1.88325,10.735275 1.88325,9.042675 C1.88325,7.350075 2.53495,5.762475 3.71865,4.571775 C4.9034,3.379675 6.48435,2.723425 8.1703,2.723425 C9.5759,2.723425 10.90905,3.179825 12,4.022625 C13.0913,3.179825 14.4241,2.723425 15.8297,2.723425 C17.516,2.723425 19.09695,3.379675 20.2817,4.572125 C21.46505,5.762475 22.11675,7.350075 22.11675,9.042675 C22.11675,10.735625 21.46505,12.323225 20.2817,13.513925 L12.94325,20.895775 C12.6993,21.141475 12.3745,21.276575 12.02835,21.276575 L12.02835,21.276575 Z"></path></g></g></svg>
+                    </div>
+                    <div class="a-prdSize">
+                        <div class="a-cardSz">
+                            <div class="a-col23">
+                                <h4 class="card-title"><span class="select-size">Select Size</span></h4>
+                            </div>
+                        </div>
+                        <div class="a-sizeLtCnt">
+                            <amp-selector class="a-sizeList" layout="container">
+                                <div option="0"><button class="btn default outline   size-btn" id=""><span style="font-weight: 600;">XS</span></button>
+                                </div>
+                                <div option="1"><button class="btn default outline   size-btn" id=""><span style="font-weight: 600;">S</span></button>
+                                </div>
+                                <div option="2"><button class="btn default outline   size-btn" id=""><span style="font-weight: 600;">M</span></button>
+                                </div>
+                                <div option="3"><button class="btn default outline   size-btn" id=""><span style="font-weight: 600;">L</span></button>
+                                </div>
+                                <div option="4"><button class="btn default outline   size-btn" id=""><span style="font-weight: 600;">XL</span></button>
+                                </div>
+                            </amp-selector>
+                            
+                        </div>
+                        <div>
+                            <div class="a-szRecoCnt">
+                                <div class="a-recoCnt">
+                                    <div class="a-recText">
+                                        <div class=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="a-pdpAcBt">
+                        <div class="a-width-60">
+                            <div class="a-rplCnt">
+                                <button class="a-btnPry a-addBtnPry" id="add1" on="tap:AMP.setState({clickCounts : clickCounts + 1}), add1.hide, remove1.show">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" class="atb-button-icon">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <path fill="#ffffff"
+                                                d="M4.012 20.718L5.246 7.314H7.27v1.763a.733.733 0 101.466 0V7.314h6.528v1.763a.733.733 0 001.466 0V7.314h2.024l1.234 13.404H4.012zM12 3.282c1.56 0 2.865 1.1 3.187 2.565H8.813A3.268 3.268 0 0112 3.282zm8.15 3.228a.733.733 0 00-.73-.663h-2.747A4.734 4.734 0 0012 1.816a4.734 4.734 0 00-4.673 4.03H4.58a.733.733 0 00-.73.664L2.475 21.38a.734.734 0 00.73.804h17.59a.733.733 0 00.73-.803L20.15 6.51z">
+                                            </path>
+                                            <path d="M0 0h24v24H0z" opacity="0.05"></path>
+                                        </g>
+                                    </svg> ADD TO BAG
+                                </button>
+                                <button class="a-btnPry a-remvPry" id="remove1" on="tap:AMP.setState({clickCounts : clickCounts - 1}), add1.show, remove1.hide" hidden>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" class="atb-button-icon">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <path fill="#ffffff"
+                                                d="M4.012 20.718L5.246 7.314H7.27v1.763a.733.733 0 101.466 0V7.314h6.528v1.763a.733.733 0 001.466 0V7.314h2.024l1.234 13.404H4.012zM12 3.282c1.56 0 2.865 1.1 3.187 2.565H8.813A3.268 3.268 0 0112 3.282zm8.15 3.228a.733.733 0 00-.73-.663h-2.747A4.734 4.734 0 0012 1.816a4.734 4.734 0 00-4.673 4.03H4.58a.733.733 0 00-.73.664L2.475 21.38a.734.734 0 00.73.804h17.59a.733.733 0 00.73-.803L20.15 6.51z">
+                                            </path>
+                                            <path d="M0 0h24v24H0z" opacity="0.05"></path>
+                                        </g>
+                                    </svg> REMOVE
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="a-prdBk">
+                <div class="a-prdCrd">
+                    <div class="a-cardImg">
+                        <amp-img src="/assets/images/tops/red-top/roadster.png" width="200" height="250" layout="intrinsic" alt="Dream-Beauty-Fashion"></amp-img>
+                    </div>
+                    <div class="a-text-md">
+                        <h3 class="a-prodTit">Roadster</h3>
+                        <h4 class="a-des">Boxy Crop Top</h4>
+                        <div class="a-prcCnt">
+                            <span class="a-price">
+                                <svg width="17" height="17" viewBox="0 0 24 24" class="rupees" fill="#282C3F">
+                                    <g fill="none" fill-rule="evenodd">
+                                        <path d="M0 0h24v24H0z" opacity="0"></path>
+                                        <path fill="#282C3F" d="M7 6.215h4.962v2.43H7.505L7.13 9.858h4.764a3.05 3.05 0 01-.827 1.539 2.99 2.99 0 01-2.022.895l-1.361-.003a.304.304 0 00-.214.519l6.717 6.779 1.697-.004-6.107-6.16a4.193 4.193 0 002.14-1.167 4.256 4.256 0 001.198-2.398h2.474l.376-1.215h-2.799v-2.43h3.496V5H7v1.215z"></path>
+                                    </g>
+                                </svg>
+                                <span class="s-prcVl">144 </span>
+                            </span>
+                            <span>
+                                <span class="orig-price price-font">
+                                    <svg width="10"
+                                        height="10" viewBox="0 0 9 10" class="strike-rupees">
+                                        <g fill="#282C3F">
+                                            <path d="M1.951 5.845l3.91 3.602-.902.376L.7 5.845l.452-.711c.186-.005.392-.02.615-.048a5.2 5.2 0 001.347-.356c.218-.09.42-.201.604-.331.185-.13.345-.281.479-.455.134-.173.231-.371.29-.594H.865v-.841h3.644a1.759 1.759 0 00-.284-.667 1.826 1.826 0 00-.567-.512 2.964 2.964 0 00-.865-.332A5.22 5.22 0 001.63.882H.864V0h6.2v.882H4.18c.173.077.33.174.468.29a2.09 2.09 0 01.612.848c.064.162.11.325.137.489h1.668v.84H5.383a2.38 2.38 0 01-.43 1.03 3.095 3.095 0 01-.8.748 4.076 4.076 0 01-1.043.482 6.15 6.15 0 01-1.159.236z"></path>
+                                            <path d="M0 6.104v-.792h8.14v.792z"></path>
+                                        </g>
+                                    </svg>
+                                    <span class="a-prcVl"> 499 </span>
+                                </span>
+                            </span>
+                            <span class="a-discPcn"><span>(71% OFF)</span></span>
+                        </div>
+                        <div class="plpXceleratorInfoTag"></div>
+                    </div>
+                    <div class="a-WshLt">
+                        <svg width="24" height="24" viewBox="0 0 24 24"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g fill="#3E4152"><path d="M8.1703,4.473425 C6.9537,4.473425 5.8134,4.946625 4.95975,5.805525 C4.10435,6.666175 3.63325,7.815575 3.63325,9.042675 C3.63325,10.269775 4.10435,11.419525 4.95975,12.280175 L12,19.362425 L19.0406,12.279825 C19.89565,11.419525 20.36675,10.270125 20.36675,9.042675 C20.36675,7.815575 19.89565,6.665825 19.0406,5.805875 C19.0406,5.805875 19.0406,5.805525 19.04025,5.805525 C18.1866,4.946625 17.0463,4.473425 15.8297,4.473425 C14.6138,4.473425 13.4742,4.946275 12.62055,5.804475 C12.29225,6.134525 11.70845,6.134875 11.3798,5.804475 C10.5258,4.946275 9.3862,4.473425 8.1703,4.473425 L8.1703,4.473425 Z M12.02835,21.276575 L11.972,21.276575 C11.6304,21.276575 11.2965,21.137625 11.05605,20.895075 L3.71865,13.513925 C2.53495,12.323225 1.88325,10.735275 1.88325,9.042675 C1.88325,7.350075 2.53495,5.762475 3.71865,4.571775 C4.9034,3.379675 6.48435,2.723425 8.1703,2.723425 C9.5759,2.723425 10.90905,3.179825 12,4.022625 C13.0913,3.179825 14.4241,2.723425 15.8297,2.723425 C17.516,2.723425 19.09695,3.379675 20.2817,4.572125 C21.46505,5.762475 22.11675,7.350075 22.11675,9.042675 C22.11675,10.735625 21.46505,12.323225 20.2817,13.513925 L12.94325,20.895775 C12.6993,21.141475 12.3745,21.276575 12.02835,21.276575 L12.02835,21.276575 Z"></path></g></g></svg>
+                    </div>
+                    <div class="a-prdSize">
+                        <div class="a-cardSz">
+                            <div class="a-col23">
+                                <h4 class="card-title"><span class="select-size">Select Size</span></h4>
+                            </div>
+                        </div>
+                        <div class="a-sizeLtCnt">
+                            <amp-selector class="a-sizeList" layout="container">
+                                <div option="0"><button class="btn default outline   size-btn" id=""><span style="font-weight: 600;">XS</span></button>
+                                </div>
+                                <div option="1"><button class="btn default outline   size-btn" id=""><span style="font-weight: 600;">S</span></button>
+                                </div>
+                                <div option="2"><button class="btn default outline   size-btn" id=""><span style="font-weight: 600;">M</span></button>
+                                </div>
+                                <div option="3"><button class="btn default outline   size-btn" id=""><span style="font-weight: 600;">L</span></button>
+                                </div>
+                                <div option="4"><button class="btn default outline   size-btn" id=""><span style="font-weight: 600;">XL</span></button>
+                                </div>
+                            </amp-selector>
+                            
+                        </div>
+                        <div>
+                            <div class="a-szRecoCnt">
+                                <div class="a-recoCnt">
+                                    <div class="a-recText">
+                                        <div class=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="a-pdpAcBt">
+                        <div class="a-width-60">
+                            <div class="a-rplCnt">
+                                <button class="a-btnPry a-addBtnPry" id="add2" on="tap:AMP.setState({clickCounts : clickCounts + 1}), add2.hide, remove2.show">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" class="atb-button-icon">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <path fill="#ffffff"
+                                                d="M4.012 20.718L5.246 7.314H7.27v1.763a.733.733 0 101.466 0V7.314h6.528v1.763a.733.733 0 001.466 0V7.314h2.024l1.234 13.404H4.012zM12 3.282c1.56 0 2.865 1.1 3.187 2.565H8.813A3.268 3.268 0 0112 3.282zm8.15 3.228a.733.733 0 00-.73-.663h-2.747A4.734 4.734 0 0012 1.816a4.734 4.734 0 00-4.673 4.03H4.58a.733.733 0 00-.73.664L2.475 21.38a.734.734 0 00.73.804h17.59a.733.733 0 00.73-.803L20.15 6.51z">
+                                            </path>
+                                            <path d="M0 0h24v24H0z" opacity="0.05"></path>
+                                        </g>
+                                    </svg> ADD TO BAG
+                                </button>
+                                <button class="a-btnPry a-remvPry" id="remove2" on="tap:AMP.setState({clickCounts : clickCounts - 1}), add2.show, remove2.hide" hidden>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" class="atb-button-icon">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <path fill="#ffffff"
+                                                d="M4.012 20.718L5.246 7.314H7.27v1.763a.733.733 0 101.466 0V7.314h6.528v1.763a.733.733 0 001.466 0V7.314h2.024l1.234 13.404H4.012zM12 3.282c1.56 0 2.865 1.1 3.187 2.565H8.813A3.268 3.268 0 0112 3.282zm8.15 3.228a.733.733 0 00-.73-.663h-2.747A4.734 4.734 0 0012 1.816a4.734 4.734 0 00-4.673 4.03H4.58a.733.733 0 00-.73.664L2.475 21.38a.734.734 0 00.73.804h17.59a.733.733 0 00.73-.803L20.15 6.51z">
+                                            </path>
+                                            <path d="M0 0h24v24H0z" opacity="0.05"></path>
+                                        </g>
+                                    </svg> REMOVE
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="a-prdCrd">
+                    <div class="a-cardImg">
+                        <amp-img src="/assets/images/tops/white-top/DreamBeautyFashionWhiteTop.png" width="200" height="250" layout="intrinsic" alt="Chemistry-Women-Tops"></amp-img>
+                    </div>
+                    <div class="a-text-md">
+                        <h3 class="a-prodTit">Dream Beauty Fashion</h3>
+                        <h4 class="a-des">Woman Puff Sleeves Top</h4>
+                        <div class="a-prcCnt">
+                            <span class="a-price">
+                                <svg width="17" height="17" viewBox="0 0 24 24" class="rupees" fill="#282C3F">
+                                    <g fill="none" fill-rule="evenodd">
+                                        <path d="M0 0h24v24H0z" opacity="0"></path>
+                                        <path fill="#282C3F" d="M7 6.215h4.962v2.43H7.505L7.13 9.858h4.764a3.05 3.05 0 01-.827 1.539 2.99 2.99 0 01-2.022.895l-1.361-.003a.304.304 0 00-.214.519l6.717 6.779 1.697-.004-6.107-6.16a4.193 4.193 0 002.14-1.167 4.256 4.256 0 001.198-2.398h2.474l.376-1.215h-2.799v-2.43h3.496V5H7v1.215z"></path>
+                                    </g>
+                                </svg>
+                                <span class="s-prcVl">395 </span>
+                            </span>
+                            <span>
+                                <span class="orig-price price-font">
+                                    <svg width="10"
+                                        height="10" viewBox="0 0 9 10" class="strike-rupees">
+                                        <g fill="#282C3F">
+                                            <path d="M1.951 5.845l3.91 3.602-.902.376L.7 5.845l.452-.711c.186-.005.392-.02.615-.048a5.2 5.2 0 001.347-.356c.218-.09.42-.201.604-.331.185-.13.345-.281.479-.455.134-.173.231-.371.29-.594H.865v-.841h3.644a1.759 1.759 0 00-.284-.667 1.826 1.826 0 00-.567-.512 2.964 2.964 0 00-.865-.332A5.22 5.22 0 001.63.882H.864V0h6.2v.882H4.18c.173.077.33.174.468.29a2.09 2.09 0 01.612.848c.064.162.11.325.137.489h1.668v.84H5.383a2.38 2.38 0 01-.43 1.03 3.095 3.095 0 01-.8.748 4.076 4.076 0 01-1.043.482 6.15 6.15 0 01-1.159.236z"></path>
+                                            <path d="M0 6.104v-.792h8.14v.792z"></path>
+                                        </g>
+                                    </svg>
+                                    <span class="a-prcVl"> 1099 </span>
+                                </span>
+                            </span>
+                            <span class="a-discPcn"><span>(64% OFF)</span></span>
+                        </div>
+                        <div class="plpXceleratorInfoTag"></div>
+                    </div>
+                    <div class="a-WshLt">
+                        <svg width="24" height="24" viewBox="0 0 24 24"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g fill="#3E4152"><path d="M8.1703,4.473425 C6.9537,4.473425 5.8134,4.946625 4.95975,5.805525 C4.10435,6.666175 3.63325,7.815575 3.63325,9.042675 C3.63325,10.269775 4.10435,11.419525 4.95975,12.280175 L12,19.362425 L19.0406,12.279825 C19.89565,11.419525 20.36675,10.270125 20.36675,9.042675 C20.36675,7.815575 19.89565,6.665825 19.0406,5.805875 C19.0406,5.805875 19.0406,5.805525 19.04025,5.805525 C18.1866,4.946625 17.0463,4.473425 15.8297,4.473425 C14.6138,4.473425 13.4742,4.946275 12.62055,5.804475 C12.29225,6.134525 11.70845,6.134875 11.3798,5.804475 C10.5258,4.946275 9.3862,4.473425 8.1703,4.473425 L8.1703,4.473425 Z M12.02835,21.276575 L11.972,21.276575 C11.6304,21.276575 11.2965,21.137625 11.05605,20.895075 L3.71865,13.513925 C2.53495,12.323225 1.88325,10.735275 1.88325,9.042675 C1.88325,7.350075 2.53495,5.762475 3.71865,4.571775 C4.9034,3.379675 6.48435,2.723425 8.1703,2.723425 C9.5759,2.723425 10.90905,3.179825 12,4.022625 C13.0913,3.179825 14.4241,2.723425 15.8297,2.723425 C17.516,2.723425 19.09695,3.379675 20.2817,4.572125 C21.46505,5.762475 22.11675,7.350075 22.11675,9.042675 C22.11675,10.735625 21.46505,12.323225 20.2817,13.513925 L12.94325,20.895775 C12.6993,21.141475 12.3745,21.276575 12.02835,21.276575 L12.02835,21.276575 Z"></path></g></g></svg>
+                    </div>
+                    <div class="a-prdSize">
+                        <div class="a-cardSz">
+                            <div class="a-col23">
+                                <h4 class="card-title"><span class="select-size">Select Size</span></h4>
+                            </div>
+                        </div>
+                        <div class="a-sizeLtCnt">
+                            <amp-selector class="a-sizeList" layout="container">
+                                <div option="0"><button class="btn default outline   size-btn" id=""><span style="font-weight: 600;">XS</span></button>
+                                </div>
+                                <div option="1"><button class="btn default outline   size-btn" id=""><span style="font-weight: 600;">S</span></button>
+                                </div>
+                                <div option="2"><button class="btn default outline   size-btn" id=""><span style="font-weight: 600;">M</span></button>
+                                </div>
+                                <div option="3"><button class="btn default outline   size-btn" id=""><span style="font-weight: 600;">L</span></button>
+                                </div>
+                                <div option="4"><button class="btn default outline   size-btn" id=""><span style="font-weight: 600;">XL</span></button>
+                                </div>
+                            </amp-selector>
+                            
+                        </div>
+                        <div>
+                            <div class="a-szRecoCnt">
+                                <div class="a-recoCnt">
+                                    <div class="a-recText">
+                                        <div class=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="a-pdpAcBt">
+                        <div class="a-width-60">
+                            <div class="a-rplCnt">
+                                <button class="a-btnPry a-addBtnPry" id="add3" on="tap:AMP.setState({clickCounts : clickCounts + 1}), add3.hide, remove3.show">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" class="atb-button-icon">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <path fill="#ffffff"
+                                                d="M4.012 20.718L5.246 7.314H7.27v1.763a.733.733 0 101.466 0V7.314h6.528v1.763a.733.733 0 001.466 0V7.314h2.024l1.234 13.404H4.012zM12 3.282c1.56 0 2.865 1.1 3.187 2.565H8.813A3.268 3.268 0 0112 3.282zm8.15 3.228a.733.733 0 00-.73-.663h-2.747A4.734 4.734 0 0012 1.816a4.734 4.734 0 00-4.673 4.03H4.58a.733.733 0 00-.73.664L2.475 21.38a.734.734 0 00.73.804h17.59a.733.733 0 00.73-.803L20.15 6.51z">
+                                            </path>
+                                            <path d="M0 0h24v24H0z" opacity="0.05"></path>
+                                        </g>
+                                    </svg> ADD TO BAG
+                                </button>
+                                <button class="a-btnPry a-remvPry" id="remove3" on="tap:AMP.setState({clickCounts : clickCounts - 1}), add3.show, remove3.hide" hidden>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" class="atb-button-icon">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <path fill="#ffffff"
+                                                d="M4.012 20.718L5.246 7.314H7.27v1.763a.733.733 0 101.466 0V7.314h6.528v1.763a.733.733 0 001.466 0V7.314h2.024l1.234 13.404H4.012zM12 3.282c1.56 0 2.865 1.1 3.187 2.565H8.813A3.268 3.268 0 0112 3.282zm8.15 3.228a.733.733 0 00-.73-.663h-2.747A4.734 4.734 0 0012 1.816a4.734 4.734 0 00-4.673 4.03H4.58a.733.733 0 00-.73.664L2.475 21.38a.734.734 0 00.73.804h17.59a.733.733 0 00.73-.803L20.15 6.51z">
+                                            </path>
+                                            <path d="M0 0h24v24H0z" opacity="0.05"></path>
+                                        </g>
+                                    </svg> REMOVE
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <!-- </amp-script> -->
+
+
+    <div class="style" style="height: 200px;"></div>
+
+    <script id="productScript" type="text/javascript" target="amp-script">
+
+        // document.getElementById('myBtn').addEventListener('click', () => {
+        //     console.log('ghjkl');
+        //     var newVal = AMP.getState('myState').then(val => {
+        //         var data = val;
+        //         console.log('data :', data);
+        //         console.log('shiiiiiiiiiiiiiiii')
+        //     })
+
+        //     console.log('newVal',newVal)
+        // })
+        // var productCount = document.getElementById("productCount").textContent;
+        // var addCartBtn = document.getElementById("add");
+        // // var cartValue = parseInt(productCount, 10);
+        // // console.log("productCount", cartValue);
+
+        // addCartBtn.addEventListener('click', function(){
+        //     for(const items of productCount){
+        //         var productCount = document.getElementById('productCount').textContent;
+        //         var cartValue = parseInt(productCount, 10);
+        //         console.log("productCount", cartValue);
+        //     }
+        // })
+
+        // addCartBtn.addEventListner('click', function(){
+        //     localStorage.setItem("Cart", productCount.value);
+        // })
+
+        // var addButtons = document.querySelectorAll(".a-btnPry");
+        // const myElement = document.getElementById('productCount');
+
+        // addButtons.forEach((addButton) => {
+        //     addButton.addEventListener("click", async (elem) => {
+        //     const state = await AMP.getState(myElement);
+        //     const myTextValue = state.clickCounts;
+        //     state.then(() => {
+        //         console.log("myTextValue", state);
+        //         localStorage.setItem("state", state);
+        //         localStorage.setItem("pd", myTextValue);
+        //     })
+        //     })
+        // });
+
+        // const productCount = document.getElementById('productCount');
+        // var addCartBtn = document.querySelectorAll(".a-btnPry");
+
+        // addCartBtn.addEventListener('click', function() {
+        //     const currentState = AMP.getState(productCount);
+        //     console.log('Current state:', currentState);
+        //     localStorage.setItem('ampState', JSON.stringify(currentState));
+        // });
+
+        // (async () => {
+        //     const myState = await AMP.getState('#CartBtn');
+        //     console.log('Current state:', myState);
+        //     localStorage.setItem('cartState', JSON.stringify(myState));
+        //   })();
+
+
+        // var cartState = JSON.parse(document.getElementById('productCount').textContent);
+
+        // // Add the value to localStorage
+        // localStorage.setItem('cartState', JSON.stringify(cartState));
+
+
+        // const productCount = document.getElementById('productCount');
+        // var addCartBtn = document.querySelectorAll(".a-btnPry");
+
+        // var myStateValue = AMP.getState().CartBtn.clickCounts;
+
+        // // Output the state value
+        // console.log(myStateValue);
+        // localStorage.setItem('cartState', JSON.stringify(myStateValue));
+
+        // addCartBtn.addEventListener('click', randomSlideDirection);
+
+
+
+        // var getData = document.getElementById('add')
+        // function getStateData(){
+        //     AMP.getState('CartBtn').then(data => { 
+        //         var  stateData = data ;
+        //         console.log('State values :', stateData);
+        //         localStorage.setItem('cartState', stateData);
+        //     })
+        // }
+        // getData.addEventListener('click',getStateData)
+
+
+
+
+        // var myState = AMP.getState('CartBtn');
+        // const stateValue = myState.clickCounts;
+
+        // localStorage.setItem('cartState', stateValue); 
+        // localStorage.setItem('cartState2', myState); 
+
+
+        var productCount = document.getElementById("productCount");
+        var addBtnPry = document.querySelectorAll(".a-addBtnPry");
+        var removeBtnPry = document.querySelectorAll(".a-remvPry");
+        var counter = 0;
+
+        addBtnPry.forEach((userItem) => {
+            userItem.addEventListener('click', function () {
+                counter += 1;
+                // console.log("add");
+                // console.log(counter, "counter add")
+                localStorage.setItem("cart", counter);
+                productCount.style.display = "block";
+                productCount.innerHTML = counter;
+            })
+        })
+        removeBtnPry.forEach((userItem) => {
+            userItem.addEventListener('click', function () {
+                counter -= 1;
+                // console.log("remove");
+                // console.log(counter, "counter remove")
+                localStorage.setItem("cart", counter)
+                productCount.style.display = "block";
+                productCount.innerHTML = counter;
+            })
+        })
+
+
+
+    </script>
+    
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.a-productCount{
+    border: 1px solid;
+    z-index: 10;
+
+    position: absolute;
+    top: 9px;
+    right: 4px;
+    color: #fff;
+    background: #ff3e6c;
+    font-weight: 700;
+    border-radius: 50%;
+    font-size: 11px;
+    display: inline-block;
+    font-family: helvetica,arial,sans-serif;
+    width: 19px;
+    height: 19px;
+    text-align: center;
+    line-height: 19px;
+}

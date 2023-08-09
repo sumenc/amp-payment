@@ -1,0 +1,253 @@
+<!doctype html>
+<html ⚡>
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>
+    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+    <script async custom-element="amp-access" src="https://cdn.ampproject.org/v0/amp-access-0.1.js"></script>
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+
+
+    <link rel="canonical" href=".html">
+    <title>Payment Page</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style amp-custom>
+    /* common css start */
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed, 
+        figure, figcaption, footer, header, hgroup, 
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure, 
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        body {
+            line-height: 1;
+            font-family: 'PT Sans', sans-serif;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        blockquote, q {
+            quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+        amp-selector [option][selected]{
+            border: none;
+            outline: none;
+        }
+        svg:not(:root) {
+            overflow: hidden;
+        }
+        button, select {
+            text-transform: none;
+        }
+
+        button, input {
+            overflow: visible;
+        }
+        /* common css end */
+
+
+        :root {
+              --color-primary: #005AF0;
+              --color-secondary: #00DCC0;
+              --color-text-light: #fff;
+              --color-text-dark: #000;
+              --color-error: #B00020;
+              --color-bg-light: #FAFAFC;
+
+              --space-1: .5rem;  /* 8px */
+              --space-2: 1rem;   /* 16px */
+              --space-3: 1.5rem; /* 24px */
+              --space-4: 2rem;   /* 32px */
+
+              --box-shadow-1: 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 1px -1px rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+            }
+            .checkout-flow-sample {
+              width: 100vw;
+              max-width: 700px;
+              padding: var(--space-2);
+              box-sizing: border-box;
+            }
+            .checkout-flow-sample > * + *,
+            #checkout-form > * + * {
+              margin-top: var(--space-2);
+            }
+            .checkout-section {
+              min-width: 300px;
+              background: #fff;
+              box-shadow: var(--box-shadow-1);
+              padding: 0 var(--space-2);
+            }
+            .sub-section > *,
+            .checkout-section > * {
+              display: block;
+              width: calc(50% - var(--space-2));
+              padding: 0;
+              margin: var(--space-2) 0;
+              align-self: center;
+            }
+            .sub-section,
+            .checkout-section {
+              display: flex;
+              flex-wrap: wrap;
+              background: var(--color-bg-light);
+            }
+            .checkout-section input {
+              padding: var(--space-1)
+            }
+            .sub-section,
+            .checkout-section > amp-list,
+            .checkout-section > form,
+            .checkout-section > div,
+            .checkout-section > h3 {
+              width: 100%;
+            }
+            .checkout-section > h3 {
+              font-size: 18px;
+              font-weight: 500;
+              text-transform: uppercase;
+              padding: 0;
+              margin: var(--space-2) 0;
+            }
+            .shopping-cart .item:first-child {
+              margin-bottom: var(--space-1);
+            }
+            .shopping-cart .item:last-child {
+              margin-top: var(--space-1);
+            }
+            .shopping-cart .item {
+              display: flex;
+              justify-content: space-between;
+            }
+            .shopping-cart .name {
+              width: 60%;
+            }
+            .shopping-cart .price,
+            .shopping-cart .quantity {
+              display: block;
+              text-align: right;
+              min-width: 72px;
+              margin-left: var(--space-1);
+            }
+            .shopping-cart .summary .price,
+            .shopping-cart .summary .quantity {
+              margin: var(--space-1) 0 0 var(--space-1);
+            }
+            .list-reset {
+              list-style: none;
+              padding-left: 0;
+            }
+
+    </style>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    
+    <script id="amp-access" type="application/json">
+        {
+            "authorization": "https://example.com/oauth2/authorize",
+            "noPingback": "true",
+            "login": {
+                "sign-in": "https://firebase.google.com/products/auth"
+            },
+            "authorizationFallbackResponse": {
+                "error": true,
+                "loggedIn": false
+            }
+        }
+    </script>
+
+</head>
+  <body>
+
+    <div>
+        <button amp-access="NOT loggedIn" on="tap:amp-access.login-sign-in">Login</button>
+        <!-- <button amp-access="loggedIn" tabindex="0" on="tap:amp-access.login-sign-out" amp-access-hide>Logout</button> -->
+        <span amp-access="NOT loggedIn">...or continue as guest</span>
+    </div>
+
+
+<form id="checkout-form" method="post" action-xhr="https://dummyjson.com/products" target="_top">
+
+    <!-- <section class="sub-section" id="manualCC" hidden>
+        <label for="manualCCNameCC">Name on card</label>
+        <input name="ccname" id="manualCCNameCC" placeholder="Full Name" autocomplete="cc-name">
+
+        <label for="manualCCCCNum">Card Number</label>
+        <input name="cardnumber" id="manualCCCCNum" autocomplete="cc-number">
+
+        <label for="manualCCCVC">CVC</label>
+        <input name="cvc" id="manualCCCVC" autocomplete="cc-csc">
+
+        <label for="manualCCExp">Expiry</label>
+        <input name="cc-exp" id="manualCCExp" placeholder="MM-YYYY" autocomplete="cc-exp">
+        <label for="saveNewAddress2">Save Credit Card</label>
+        <input id="saveNewAddress2" type="checkbox" checked on="change:shippingAddress.toggleVisibility">
+      </section>
+    </section> -->
+
+    <!-- Not logged in users can enter their credit card details manually. Note that we're using the credit card auto-fill markup. -->
+    <section class="checkout-section" amp-access="NOT loggedIn" amp-access-hide>
+      <h3>Enter Credit Card Details</h3>
+      <label for="nameCC">Name on card</label>
+      <input name="ccname" id="nameCC" placeholder="Full Name" autocomplete="cc-name">
+
+      <label for="ccNum">Card Number</label>
+      <input name="cardnumber" id="ccNum" autocomplete="cc-number">
+
+      <label for="ccCVC">CVC</label>
+      <input name="cvc" id="ccCVC" autocomplete="cc-csc">
+
+      <label for="ccExp">Expiry</label>
+      <input name="cc-exp" id="ccExp" placeholder="MM-YYYY" autocomplete="cc-exp">
+    </section>
+
+    <!-- The pay now button simply submits the form containting the different checkout form sections. -->
+    <div>
+        <input type="submit" value="Pay Now">
+        <span>Not for real ...</span>
+    </div>
+
+</form>
+
+
+    
+  </body>
+</html>

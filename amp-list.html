@@ -1,0 +1,87 @@
+<!doctype html>
+<!-- This tells everyone that this is an AMP file. `<html amp>` works too -->
+<html ⚡>  <!--Ref: https://amp.dev/documentation/guides-and-tutorials/learn/spec/amphtml/ -->
+<!-- The charset definition must be the first child of the `<head>` tag -->
+  <head>
+    <meta charset="utf-8">
+    <meta name="amp-script-src" content="sha384-tL-_YM-tiy6hCg3CPaZ48Qk8kCsMQZ5goUGVkTW2RzE8Rbvr8xP_VhqVmyuKB_Fw">
+    <!-- The AMP runtime must be loaded as the second child of the `<head>` tag.-->
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+    <script async custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>
+    
+    <!--AMP HTML files require a canonical link pointing to the regular HTML. If no HTML version exists, it should point to itself -->
+    <link rel="canonical" href=".html">
+    <title>AMP-list</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <!--CSS must be embedded inline-->
+    <style amp-custom>
+      
+    </style>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  </head>
+  <body>
+
+    <!-- <amp-list layout="fixed-height" height="500" src="https://dummyjson.com/products" binding="no" items="products">
+      <template type="amp-mustache">
+        <div>{{title}}</div>
+        <amp-img src="{{images.0}}" width="100" height="100" layout="intrinsic" alt="products">
+        </amp-img>
+        <amp-img src="{{images.1}}" width="100" height="100" layout="intrinsic" alt="products">
+        </amp-img>
+        <amp-img src="{{images.2}}" width="100" height="100" layout="intrinsic" alt="products">
+        </amp-img>
+        <amp-img src="{{images.3}}" width="100" height="100" layout="intrinsic" alt="products">
+        </amp-img>
+
+        
+      </template>
+    </amp-list> -->
+
+
+    <div class="sample">
+      <amp-script id="dataFunctions" script="amp-list-source-script" nodom data-ampdevmode>
+        <div id="testDiv"></div>
+      </amp-script>
+      <script id="amp-list-source-script" type="text/javascript" target="amp-script">
+
+        function fetchData() {
+          return fetch('https://amp.dev/static/samples/json/todo.json')
+            .then(response => response.json())
+            .then(transformData);
+        }
+
+        var testDiv = document.getElementById("testDiv");
+        console.log(testDiv)
+    
+        function transformData(json) {
+          console.log(json)
+          let strVal = "";
+          let newEntries =
+            json.items.map(
+              entry => {
+                strVal += `<div> ${entry.done}<span>${entry.title}</span></div>`
+                return (entry.done ? 'Already done: ' : 'To do: ') + entry.title
+              }
+              );
+              // testDiv.innerHTML = strVal;
+          return { items: newEntries };
+        }
+    
+        // exportFunction('fetchData', fetchData);
+        fetchData();
+      </script>
+    
+      <amp-list width="auto" height="200" layout="fixed-height" src="amp-script:dataFunctions.fetchData">
+        <template type="amp-mustache">
+          <div id="testDiv">{{.}}</div>
+        </template>
+      </amp-list>
+    </div>
+    
+
+    
+  </body>
+</html>
