@@ -1,0 +1,526 @@
+
+<!doctype html>
+<html ⚡>
+<head>
+  <meta charset="utf-8">
+  <title>amp-laterpay</title>
+  <link rel="canonical" href="https://ampexample.laterpay.net/dual-amp-access.html" >
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <script id="amp-access" type="application/json">
+    [
+      {
+        "vendor": "laterpay",
+        "laterpay": {
+          "articleTitleSelector": ".content-container > header > h1",
+          "region": "us",
+          "localeMessages": {
+            "header": "LaterPay"
+          }
+        },
+        "namespace": "laterpay"
+      },
+      {
+        "login": {
+          "signin": "https://dummyjson.com/auth/login",
+          "signout": "https://ampexample.laterpay.net/logout.html?amp_reader_id=READER_ID&redirection_url=https://ampexample.laterpay.net/dual-amp-access.html"
+        },
+        "authorization": "https://imn2gdp7nd.execute-api.us-east-1.amazonaws.com/staging/amp-access-auth?amp_reader_id=READER_ID",
+        "noPingback": true,
+        "namespace": "laternews"
+      }
+    ]
+  </script>
+  
+  <style amp-custom>
+    body {
+      margin: 0;
+      font-family: 'Georgia', Serif;
+      display: flex;
+      justify-content: center;
+    }
+
+    main {
+      width: 800px;
+    }
+    @media (max-width: 420px) {
+      main {
+        width: 100%;
+      }
+    }
+
+    .brand-logo {
+      font-family: 'Open Sans';
+    }
+
+    .ad-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .content-container p {
+      line-height: 24px;
+    }
+
+    header,
+    .article-body {
+      padding: 15px;
+    }
+
+    .full-bleed {
+      margin: 0 -15px;
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    figcaption {
+      color: #6f757a;
+      padding: 15px 0;
+      font-size: .9em;
+    }
+
+    .author {
+      display: flex;
+      align-items: center;
+
+      background: #f4f4f4;
+      padding: 0 15px;
+
+      font-size: .8em;
+
+      border: solid #dcdcdc;
+      border-width: 1px 0;
+    }
+
+    .header-time {
+      color: #a8a3ae;
+      font-family: 'Roboto';
+      font-size: 12px;
+    }
+
+    .author p {
+      margin: 5px;
+    }
+
+    .byline {
+      font-family: 'Roboto';
+      display: inline-block;
+    }
+
+    .byline p {
+      line-height: normal;
+    }
+
+    .byline .brand {
+      color: #6f757a;
+    }
+
+    .standfirst {
+      color: #6f757a;
+    }
+
+    .mailto {
+      text-decoration: none;
+    }
+
+    #author-avatar {
+      margin: 10px;
+      border: 5px solid #fff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    h1 {
+      margin: 5px 0;
+      font-weight: normal;
+    }
+
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 226px;
+      background: #f4f4f4;
+    }
+
+    hr {
+      margin: 0;
+    }
+
+    amp-img {
+      background-color: #f4f4f4;
+    }
+
+    .login-link {
+      color:cornflowerblue;
+      text-decoration: underline;
+      cursor:pointer;
+    }
+
+    .login-section {
+      margin: 24px 16px 16px;
+      display: flex;
+      flex-direction: column;
+    }
+    .login-section p, #amp-access-laterpay-dialog {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (max-width: 420px) {
+      .login-section {
+        margin: 24px 0px 16px;
+      }
+    }
+
+    #amp-access-laterpay-dialog {
+      font-family: sans-serif;
+    }
+    @media (max-width: 420px) {
+      #amp-access-laterpay-dialog {
+        width: 100%;
+      }
+
+      .amp-access-laterpay-container {
+        border-radius: 0px;
+      }
+    }
+
+    #amp-access-laterpay-dialog ul {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+
+    #amp-access-laterpay-dialog li {
+      list-style: none;
+      display: flex;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #01a99d;
+    }
+    
+    #amp-access-laterpay-dialog li:last-child {
+      border-bottom: none;
+    }
+
+    #amp-access-laterpay-dialog label {
+      display: flex;
+      padding-left: 5px;
+      padding-right: 20px;
+    }
+
+    #amp-access-laterpay-dialog input {
+      width: 20px;
+    }
+
+    .amp-access-laterpay-header {
+      font-weight: bold;
+      margin-bottom: 35px;
+      color: #01a99d;
+      font-size: 1.2em;
+    }
+
+    .amp-access-laterpay-metadata-container {
+      width: 90%;
+    }
+
+    .amp-access-laterpay-title {
+      font-size: 1.1em;
+      margin: 0;
+      padding: 0;
+    }
+
+    .amp-access-laterpay-description {
+      font-size: 0.9em;
+      margin: 0;
+      padding: 0;
+    }
+
+    .amp-access-laterpay-price-container {
+      margin-top: 0;
+      margin-left: auto;
+      display: flex;
+    }
+
+    .amp-access-laterpay-price {
+      font-size: 1.7em;
+    }
+
+    .amp-access-laterpay-currency {
+      margin-left: 2px;
+      margin-top: -8px;
+    }
+
+    .amp-access-laterpay-purchase-button {
+      font-size: 1.1em;
+      padding: 0.5em 0.8em;
+      background-color: #01a99d;
+      border-radius: 4px;
+      border: 0;
+      color: #fff;
+      width: 70%;
+    }
+
+    .amp-access-laterpay-purchase-button:disabled {
+      opacity: 0.5;
+    }
+
+    .amp-access-laterpay-already-purchased-link-container > a {
+      font-size: 0.8em;
+      text-decoration: none;
+      color: #01a99d;
+    }
+
+    .amp-access-laterpay-already-purchased-link-container > a:hover {
+      text-decoration: underline;
+    }
+
+    .error-section {
+      margin: 16px;
+      margin-top: 24px;
+      padding: 16px;
+      background: #fa7;
+    }
+
+    .content-container {
+      min-height: 1900px;
+    }
+
+  </style>
+  <script async custom-element="amp-access" src="https://cdn.ampproject.org/v0/amp-access-0.1.js"></script>
+  <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+  <script async custom-element="amp-access-laterpay" src="https://cdn.ampproject.org/v0/amp-access-laterpay-0.2.js"></script>
+  <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js"></script>
+  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+</head>
+
+<body>
+
+    <!-- <amp-analytics type="googleanalytics">
+        <script type="application/json">
+        {
+          "vars": {
+            "account": "UA-50448165-20",
+            "eventCategory": "AMPAccessLaterPay"
+          },
+          "extraUrlParams": {
+            "readerid": "${accessReaderId}"
+          },
+          "transport": {
+            "beacon": false,
+            "xhrpost": true,
+            "image": false
+          },
+          "triggers": {
+            "trackPageview": {
+              "on": "visible",
+              "request": "pageview"
+            },
+            "accessAuthorizationReceived": {
+              "on": "access-authorization-received",
+              "request": "event",
+              "vars": { "eventAction": "access-authorization-received" }
+            },
+            "accessAuthorizationFailed": {
+              "on": "access-authorization-failed",
+              "request": "event",
+              "vars": { "eventAction": "access-authorization-failed" }
+            },
+            "accessViewed": {
+              "on": "access-viewed",
+              "request": "event",
+              "vars": { "eventAction": "access-viewed" }
+            },
+            "accessLoginStarted": {
+              "on": "access-login-laterpay-started",
+              "request": "event",
+              "vars": { "eventAction": "access-login-laterpay-started" }
+            },
+            "accessLoginSuccess": {
+              "on": "access-login-laterpay-success",
+              "request": "event",
+              "vars": { "eventAction": "access-login-laterpay-success" }
+            },
+            "accessLoginRejected": {
+              "on": "access-login-laterpay-rejected",
+              "request": "event",
+              "vars": { "eventAction": "access-login-laterpay-rejected" }
+            },
+            "accessLoginFailed": {
+              "on": "access-login-laterpay-failed",
+              "request": "event",
+              "vars": { "eventAction": "access-login-laterpay-failed" }
+            },
+            "accessLoginStarted": {
+              "on": "access-login-laternews-started",
+              "request": "event",
+              "vars": { "eventAction": "access-login-laternews-started" }
+            },
+            "accessLoginSuccess": {
+              "on": "access-login-laternews-success",
+              "request": "event",
+              "vars": { "eventAction": "access-login-laternews-success" }
+            },
+            "accessLoginRejected": {
+              "on": "access-login-laternews-rejected",
+              "request": "event",
+              "vars": { "eventAction": "access-login-laternews-rejected" }
+            },
+            "accessLoginFailed": {
+              "on": "access-login-laternews-failed",
+              "request": "event",
+              "vars": { "eventAction": "access-login-laternews-failed" }
+            }
+          }
+        }
+        </script>
+    </amp-analytics> -->
+
+    <main role="main">
+        <article>
+
+            <div class="content-container">
+                <header>
+                    <h1 itemprop="headline">Disruption is a state of mind. Three reasons why startups prevail in imposing
+                        change.</h1>
+                    <time class="header-time" itemprop="datePublished" datetime="2015-09-14 13:00">September 14, 2015</time>
+                    <p class="standfirst">
+                        Entrepreneurs have a few traits, which make them see and interpret things differently, derive
+                        creative solutions from it, and finally win the innovations game. Here are three traits which show
+                        you why this is important for media companies and publishers, as well as for every other industry
+                        that wants to do the transition to the digital world.
+                    </p>
+                </header>
+
+                <h3>1. Entrepreneurs always question the status quo</h3>
+
+                <p>
+                    Where everyone else sees how things are, entrepreneurs see how they could be.
+                </p>
+                <p>
+                    Many things, of course, are simply entirely beyond anyone’s range of influence, and therefore will
+                    remain as they are – unchanged. But whenever there is something challenging him, an entrepreneur will
+                    take it on – as long as it comes at the right time, e.g. when he is bored or not satisfied with his
+                    current task. This is the moment when an idea starts germinating in his mind. This is when his mind
+                    starts spinning around a new product, a new concept of something entirely new.
+                </p>
+
+                <p>
+                    Try it out yourself. Next time when something bothers you, ask yourself how it can be changed. Make
+                    wondering and questioning a habit. Whenever you see situations or things which are not optimal, question
+                    them.
+                </p>
+
+                <section amp-access="NOT error AND NOT laterpay.access AND NOT laternews.access" amp-access-hide
+                    class="login-section">
+                    <p>
+                        <a class="login-link" on="tap:amp-access.login-laternews-signin">Login here to access your LaterNews
+                            subscription.</a>
+                    </p>
+                    <div id="amp-access-laterpay-dialog" class="amp-access-laterpay"></div>
+                </section>
+
+                <section amp-access="error" amp-access-hide class="error-section">
+                    Oops... Something broke.
+                </section>
+
+                <div amp-access="laterpay.access OR laternews.access" amp-access-hide class="article-body" itemprop="articleBody">
+
+                    <p amp-access="laternews.access" amp-access-hide>
+                        <a class="login-link" on="tap:amp-access.login-laternews-signout">Logout of your LaterNews
+                            account.</a>
+                    </p>
+
+                    <h3>2. Entrepreneurs seek freedom, not safety</h3>
+
+                    <p>
+                        Most people seem to have a built-in tendency of spending most of their money, especially when they
+                        get a sudden access to money, e.g. a bonus payment or an inheritance or a (rare) tax refund. Most
+                        people spend this money by investing it in fashion, plenty of gadgets, luxury objects, cars, or in a
+                        flat or a house. They trade money for material dependencies and strengthen their comfort zone.
+                    </p>
+                    <p>
+                        By not giving in to this (or at least not too soon), you gain freedom. And freedom helps you to keep
+                        an open mind, to remain alert – it keeps you awake. You need this state of mind if you want to see
+                        what remains unseen to others. Otherwise you simply don’t have a choice and just have to make sure
+                        your investment remains safe.
+                    </p>
+                    <p>
+                        Entrepreneurs value freedom over material assets and this enables them to jump at opportunities when
+                        they see them.
+                    </p>
+                    <p>
+                        When I left DELUXE MUSIC, some time after selling a part of my shares to investors, my girlfriend
+                        said: ”you know, when men have some money set aside, they build houses, buy flats, build a nest …
+                        but I guess you’ll rather start something new and finance that, right?“ So I did – I went out and
+                        started LaterPay. It didn’t keep us from building a nest in a rented apartment.
+                    </p>
+
+                    <h3>3. Entrepreneurs have a built-in noise cancellation mechanism for doubters and naysayers</h3>
+                    <p>
+                        Almost every new idea encounters resistance when first discussed with friends, family or colleagues.
+                        The risk of being rejected or ridiculed has to be taken for granted, simply because it is most
+                        likely that people surrounding you don’t get the idea immediately. A new product or a service needs
+                        to be explained from different angles until the concept sinks in. Words, tag lines, benefits need to
+                        be defined first.
+                    </p>
+                    <p>
+                        When discussing their idea, entrepreneurs have the ability to selectively tune out resistance and
+                        early doubts; they filter out what obstructs them and will only process the information that helps
+                        them, not what would discourage them. They follow their inner compass and walk the narrow path from
+                        idea to product.
+                    </p>
+                    <p>
+                        If you live in Europe and not in the US, and if you have an idea that could make a difference or has
+                        the potential to induce change, it is even advisable not to talk about it too early.
+                    </p>
+
+                    <p>
+                        Building self-confidence related to this idea is the more relevant first step. Once you start
+                        discussing your idea, people surrounding you will challenge you, but they will have a hard time
+                        getting you off the track. If you aren’t mentally ready, they will kill your idea in its earliest
+                        stage.
+                    </p>
+                    <p>
+                        The entrepreneurial culture in the U.S. on the other hand encourages you to develop your ideas and
+                        it fosters creativity, while in Europe the culture forces you to fight for your idea from the very
+                        beginning.
+                    </p>
+                    <p>
+                        Did you ever have an idea, but never got if off the idea stage? Did you ever have an idea which
+                        never made it beyond the stage of the first discussion with friends? If yes, check how many of the
+                        three traits mentioned earlier were involved.
+                    </p>
+
+                    <h3>Live by principles – develop (potentially disruptive) ideas</h3>
+                    <p>
+                        Questioning the status quo and seeking freedom instead of safety are just two out of several
+                        principles embraced by entrepreneurs. Combined with the ability to filter out the negative noise
+                        around a new idea, they help entrepreneurs to develop an open mind. This is what you need in order
+                        to create something new that will induce change and eventually lead to disruption.
+                    </p>
+                    <p>
+                        Entrepreneurs do not make concessions to lethargy. They have a strong conviction about their ideas
+                        and concepts, combine this with knowledge and evade inertia of living a traditional life of
+                        accepting things how they are.
+                    </p>
+                    <p>
+                        Of course, no matter how much someone wishes to be truly disruptive, only future development will
+                        show whether you have induced change which leads to some improvement in a market, or whether you
+                        have disrupted a market.
+                    </p>
+                    <p>
+                        This leads to my personal conclusion that disruption is a state of mind. You need to be awake,
+                        questioning and free in order to hear the music long before others do.
+                    </p>
+
+                </div>
+            </div>
+        </article>
+    </main>
+
+</body>
+</html>
